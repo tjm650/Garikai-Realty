@@ -195,7 +195,7 @@ const NavigationBar: React.FC = () => {
               <Link href="/" className="flex items-center space-x-2">
                 <img
                   src={logo}
-                  alt="Jeff Logo"
+                  alt="Garikai Realty Logo"
                   className="w-8 h-8 rounded-full"
                 />
                 <span className="font-semibold text-lg text-[#1F4788]">
