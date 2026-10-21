@@ -13,7 +13,7 @@ This file records production migration history for project `fpktfufvnfauahriwjuf
 | 20260812105634 | booking_provider_payment_workflow | Candidate source exists on branch `agent/migrate-to-supabase-foundation` under a different filename/version; not copied into active migrations pending schema-diff review |
 | 20260812111440 | harden_payment_confirmation_idempotency | Historical SQL not found on main |
 | 20260812144053 | add_provider_insights_rpc | Historical SQL not found on main |
-| 20260814095040 | whatsapp_transport_ledger | Main has a candidate file named `20260814120000_whatsapp_transport_ledger.sql`; filename version differs from production |
+| 20260814095040 | whatsapp_transport_ledger | Tracked in main with corrected production version filename |
 | 20260815114316 | remove_unused_token_entitlement_tables | Historical SQL not found on main |
 | 20261021162623 | restrict_anonymous_provider_booking_response | Historical SQL not found on main |
 | 20261021185923 | secure_privileged_rpcs_and_private_transport_tables | Tracked in main with matching version |
