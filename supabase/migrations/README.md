@@ -20,6 +20,7 @@ This file records production migration history for project `fpktfufvnfauahriwjuf
 | 20261021185937 | allow_trusted_service_role_provider_booking_rpc | Tracked in main with matching version |
 | 20261021190232 | remove_excess_public_table_privileges | Tracked in main with matching version |
 | 20261021190609 | restrict_payment_and_provider_insights_rpcs_to_server | Tracked in main with matching version |
+| 20261021190827 | index_uncovered_foreign_keys | Tracked in main with matching version |
 
 ## Why the old migration candidates are not automatically copied into the active folder
 
