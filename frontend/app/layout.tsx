@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeff | Reliable and Secure accommodation search",
+  title: "Garikai Realty | Reliable and Secure accommodation search",
   // description: "Accommodation assistant",
 
   icons: {
