@@ -1,10 +1,10 @@
-# Jeff Frontend - Student Accommodation Platform
+# Garikai Realty Frontend - Student Accommodation Platform
 
-This is the frontend application for Jeff, an AI-powered student accommodation platform that helps students at NUST find suitable accommodation near campus.
+This is the frontend application for Garikai Realty, an AI-powered student accommodation platform that helps students at NUST find suitable accommodation near campus.
 
 ## Overview
 
-The Jeff frontend is built with Next.js 16.0.1 and provides:
+The Garikai Realty frontend is built with Next.js 16.0.1 and provides:
 - Landing page with project information
 - Cart functionality for token purchases
 - Privacy policy documentation
@@ -33,9 +33,9 @@ frontend/
 │   ├── cartController/     # Cart functionality
 ├── public/                  # Static assets
 │   ├── header-image.png
-│   ├── jeff-header-msg-r.png
-│   ├── jeff-header-msg-s.png
-│    └── jeff-confirm-msg.png
+│   ├── Garikai Realty-header-msg-r.png
+│   ├── Garikai Realty-header-msg-s.png
+│    └── Garikai Realty-confirm-msg.png
 └── package.json            # Dependencies and scripts
 ```
 
@@ -88,7 +88,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Backend Integration
 
-The frontend communicates with the Jeff backend API for:
+The frontend communicates with the Garikai Realty backend API for:
 - Token purchases and payment processing
 - Property search functionality
 - User authentication and session management
@@ -107,9 +107,9 @@ Create a `.env.local` file for local development:
 
 ```env
 NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
-JEFF_WA_NUMBER=+263XXXXXXXXX
+Garikai Realty_WA_NUMBER=+263XXXXXXXXX
 ```
 
 ## Contributing
 
-This frontend is part of the larger Jeff platform. For development guidelines, refer to the main project README.
+This frontend is part of the larger Garikai Realty platform. For development guidelines, refer to the main project README.
