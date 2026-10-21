@@ -45,7 +45,7 @@ Deno.serve(async (req: Request) => {
     } else if (["menu_properties", "manage_properties", "provider_properties", "properties", "property management"].includes(cmd) || /^provider_(property|toggle_availability)_[0-9a-f-]{36}$/i.test(cmd)) {
       slug = "provider-manage-properties";
       if (["menu_properties", "manage_properties", "provider_properties", "properties", "property management"].includes(cmd)) forwarded = "menu_properties";
-    } else if (["menu_insights", "property_insights", "insights"].includes(cmd)) {
+    } else if (["menu_insights", "property_insights", "insights"].includes(cmd) || /^provider_insight_[0-9a-f-]{36}$/i.test(cmd) || /^update\s+/i.test(message)) {
       slug = "provider-property-insights";
       forwarded = "property_insights";
     } else if (["menu_about_us", "about_us", "about us"].includes(cmd)) {
