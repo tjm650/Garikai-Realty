@@ -168,7 +168,7 @@ const Footer: React.FC = () => {
 
           {/* Disclaimer */}
           <p className="block text-center justify-self-center text-xs text-gray-400 mt-4 md:hidden">
-            © 2025 Jeff. All rights reserved.
+            © 2026 Garikai Realty. All rights reserved.
           </p>
         </div>
       </div>
