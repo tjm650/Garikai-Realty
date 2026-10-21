@@ -33,3 +33,15 @@ The foundation branch contains four historical SQL files, but their version iden
 3. Keep active migration filenames aligned with the versions recorded by Supabase.
 4. Run a clean local reset/replay only after the history is reconciled; do not run this incomplete history against production.
 5. Add every future database change as a versioned migration and commit it with the code that depends on it.
+
+
+## Recovery archive
+
+Four source candidates have been archived outside the active migration directory so they cannot be accidentally replayed:
+
+- `docs/supabase-migration-recovery/20260812104918_align_core_schema_with_django_inventory.candidate.sql`
+- `docs/supabase-migration-recovery/20260812105223_conversation_workflow_primitives.candidate.sql`
+- `docs/supabase-migration-recovery/20260812105405_property_matching_rpc.candidate.sql`
+- `docs/supabase-migration-recovery/20260812105634_booking_provider_payment_workflow.candidate.sql`
+
+These are recovery evidence only, not confirmed exact production migration source. The initial schema and migrations for payment-confirmation idempotency, provider insights, removal of unused entitlement tables, and anonymous provider booking-response restrictions still need authoritative source recovery or a reviewed baseline snapshot. The complete operational verification matrix is in `docs/GARIKAI_REALTY_SUPABASE_RELEASE_CHECKLIST.md`.
