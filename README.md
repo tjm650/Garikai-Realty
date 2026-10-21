@@ -1,10 +1,10 @@
-# Jeff - Student Accommodation Platform
+# Garikai Realty - Student Accommodation Platform
 
-Jeff is an AI-powered student accommodation platform that helps students find suitable accommodation near campus through WhatsApp conversations.
+Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation near campus through WhatsApp conversations.
 
 ## Current Free-Use Mode
 
-Jeff is currently **free to use**. Payment processing and paid search tokens are disabled while the core accommodation workflow is being stabilized.
+Garikai Realty is currently **free to use**. Payment processing and paid search tokens are disabled while the core accommodation workflow is being stabilized.
 
 Users can:
 - Find accommodation based on their requirements
@@ -43,7 +43,7 @@ The webhook:
 2. records every inbound/status event in Supabase;
 3. deduplicates Meta retries by event key;
 4. records inbound/outbound message state;
-5. invokes the existing JEFF conversation engine;
+5. invokes the existing GARIKAI REALTY conversation engine;
 6. records Meta outbound message IDs and delivery states.
 
 The Django WhatsApp client remains available to domain workflows such as provider notifications, but it is Meta-only. It must not use Twilio credentials or Twilio Content SIDs.
@@ -56,7 +56,7 @@ Meta/Supabase:
 - `WHATSAPP_ACCESS_TOKEN`
 - `WHATSAPP_PHONE_NUMBER_ID`
 - `WHATSAPP_GRAPH_VERSION` (optional)
-- `JEFF_CONVERSATION_FUNCTION_URL` (optional)
+- `GARIKAI REALTY_CONVERSATION_FUNCTION_URL` (optional)
 
 Django provider notifications:
 - `META_ACCESS_TOKEN` or `WHATSAPP_ACCESS_TOKEN`
@@ -65,7 +65,7 @@ Django provider notifications:
 - `META_TEMPLATE_LANGUAGE`
 - `META_TEMPLATE_PROVIDER_INFO_RESPONSE`
 
-Do not configure or commit Twilio credentials for JEFF WhatsApp.
+Do not configure or commit Twilio credentials for GARIKAI REALTY WhatsApp.
 
 ## Quick Start
 
@@ -84,7 +84,7 @@ Do not configure or commit Twilio credentials for JEFF WhatsApp.
 ## Project Structure
 
 ```text
-Jeff/
+Garikai Realty/
 ├── backend/                 # Django backend API server
 │   ├── core/                # Conversation, search, booking and shared logic
 │   ├── matching/            # Property matching algorithms
