@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
               >
                 <img
                   src={jeffConfirmMsg}
-                  alt="Jeff Header Message R"
+                  alt="Garikai Realty Header Message R"
                   className="w-150 h-auto drop-shadow-lg"
                 />
               </motion.div>
