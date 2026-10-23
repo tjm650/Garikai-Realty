@@ -27,7 +27,7 @@ async function updateConversation(booking: any, status: string, providerMessage:
   if (!booking.guest_phone) return;
   const q = await db.from("conversations").select("id,context_data").eq("phone_number", booking.guest_phone).eq("status", "active").order("updated_at", { ascending: false }).limit(1).maybeSingle();
   if (q.error || !q.data) return;
-  const next = status === "provider_accepted" ? "awaiting_payment" : status === "provider_declined" ? "property_listings" : "booking_request";
+  const next = status === "provider_accepted" ? "inquiry" : status === "provider_declined" ? "property_listings" : "booking_request";
   await db.from("conversations").update({
     current_step: next,
     context_data: { ...(q.data.context_data ?? {}), booking_id: booking.id, booking_status: status, provider_response: providerMessage },
@@ -90,8 +90,8 @@ Deno.serve(async (req: Request) => {
       if (!upd.data) return json({ handled: true, reply: "This request was processed by another action. Type menu to refresh." });
       await updateConversation({ ...b, ...upd.data }, status, patch.provider_response);
       const outcome = choice === "accept" ? "accepted" : "declined";
-      const notifyText = "Garikai Realty booking update\nBooking reference: " + (b.booking_number ?? bookingId.slice(0, 8)) + "\nProperty: " + (b.properties?.name ?? "your selected property") + "\nStatus: " + (choice === "accept" ? "The provider has accepted your request. The booking is not confirmed until the next steps are completed." : "The provider has declined your request. Please return to the listings to choose another property.") ;
-      return json({ handled: true, reply: "Booking " + (b.booking_number ?? bookingId.slice(0, 8)) + " has been " + outcome + ". I will attempt to send the student a status update. Type menu to review other requests.", notify_student: b.guest_phone ? { phone_number: b.guest_phone, text: notifyText } : null });
+      const notifyText = "Garikai Realty booking update\nBooking reference: " + (b.booking_number ?? bookingId.slice(0, 8)) + "\nProperty: " + (b.properties?.name ?? "your selected property") + "\nStatus: " + (choice === "accept" ? "The provider has accepted your booking request. Status: Accepted by provider (not yet confirmed)." : "The provider has declined your request. Please return to the listings to choose another property.") ;
+      return json({ handled: true, reply: "Booking " + (b.booking_number ?? bookingId.slice(0, 8)) + " has been " + outcome + ". I will send the student a status update. Type menu to review other requests.", notify_student: b.guest_phone ? { phone_number: b.guest_phone, text: notifyText } : null });
     }
     return json({ handled: true, reply: "Provider menu: type menu to view pending booking requests, then select a request to accept or decline it.", interactive: { type: "button", body: "Provider menu", buttons: [{ id: "booking_requests", title: "View requests" }] } });
   } catch (e) {
