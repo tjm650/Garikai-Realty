@@ -110,9 +110,9 @@ _You can only manage verified properties._`;
       return json({ handled: true, reply: [
         "*ACCOUNT STATUS*",
         "",
-        "Activity: "+provider.is_active ? "Active" : "Inactive",
+        "Activity: " + (provider.is_active ? "Active" : "Inactive"),
       
-        "Status: "+ provider.verified ? "Verified" : "Not verified",
+        "Status: " + (provider.verified ? "Verified" : "Not verified"),
       ].join("\n"), interactive: {
         type: "button",
         buttons: [
