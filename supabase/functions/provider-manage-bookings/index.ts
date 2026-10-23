@@ -2,13 +2,22 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+function normalizeZimbabwePhone(v: unknown): string {
+  let value = String(v ?? "").trim().replace(/\D/g, "");
+  if (!value) return "";
+  if (value.startsWith("00")) value = value.slice(2);
+  if (value.startsWith("263")) value = value.slice(3);
+  else if (value.startsWith("0")) value = value.slice(1);
+  if (!/^7\d{8}$/.test(value)) return "";
+  return "+263" + value;
+}
 const digits = (v: unknown) => String(v ?? "").replace(/\D/g, "");
 const json = (body: unknown, status = 200) => Response.json(body, { status });
 
 async function findProvider(phone: string) {
   const q = await db.from("providers").select("id,business_name,phone_number,is_active,verified").eq("is_active", true).eq("verified", true);
   if (q.error) throw new Error(q.error.message);
-  return (q.data ?? []).find((p: any) => digits(p.phone_number) === digits(phone)) ?? null;
+  return (q.data ?? []).find((p: any) => normalizeZimbabwePhone(p.phone_number) !== "" && normalizeZimbabwePhone(p.phone_number) === normalizeZimbabwePhone(phone)) ?? null;
 }
 const menu = (body: string, rows: any[], button = "Open requests") => ({
   type: "list", header: "Garikai Realty • Provider", body, button,
@@ -35,7 +44,7 @@ Deno.serve(async (req: Request) => {
     const message = String(body?.message ?? "").trim();
     if (!phone || !message) return json({ error: "phone_number and message are required" }, 400);
     const provider = await findProvider(phone);
-    if (!provider) return json({ handled: false, error: "Provider not found or inactive" }, 404);
+    if (!provider) return json({ handled: false, error: "Verified provider not found" }, 404);
     const cmd = message.toLowerCase();
     if (["hi", "hello", "hey", "menu", "provider_menu", "start", "booking_requests"].includes(cmd)) {
       const q = await db.from("bookings").select("id,booking_number,guest_name,guest_phone,property_id,status,created_at,additional_info_requested,properties(name,property_no)").eq("provider_id", provider.id).eq("status", "pending").order("created_at", { ascending: true }).limit(10);
