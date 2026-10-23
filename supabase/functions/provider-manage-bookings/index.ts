@@ -2,13 +2,22 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+function normalizeZimbabwePhone(v: unknown): string {
+  let value = String(v ?? "").trim().replace(/\D/g, "");
+  if (!value) return "";
+  if (value.startsWith("00")) value = value.slice(2);
+  if (value.startsWith("263")) value = value.slice(3);
+  else if (value.startsWith("0")) value = value.slice(1);
+  if (!/^7\d{8}$/.test(value)) return "";
+  return "+263" + value;
+}
 const digits = (v: unknown) => String(v ?? "").replace(/\D/g, "");
 const json = (body: unknown, status = 200) => Response.json(body, { status });
 
 async function findProvider(phone: string) {
   const q = await db.from("providers").select("id,business_name,phone_number,is_active,verified").eq("is_active", true).eq("verified", true);
   if (q.error) throw new Error(q.error.message);
-  return (q.data ?? []).find((p: any) => digits(p.phone_number) === digits(phone)) ?? null;
+  return (q.data ?? []).find((p: any) => normalizeZimbabwePhone(p.phone_number) !== "" && normalizeZimbabwePhone(p.phone_number) === normalizeZimbabwePhone(phone)) ?? null;
 }
 const menu = (body: string, rows: any[], button = "Open requests") => ({
   type: "list", header: "Garikai Realty • Provider", body, button,
@@ -18,7 +27,7 @@ async function updateConversation(booking: any, status: string, providerMessage:
   if (!booking.guest_phone) return;
   const q = await db.from("conversations").select("id,context_data").eq("phone_number", booking.guest_phone).eq("status", "active").order("updated_at", { ascending: false }).limit(1).maybeSingle();
   if (q.error || !q.data) return;
-  const next = status === "provider_accepted" ? "awaiting_payment" : status === "provider_declined" ? "property_listings" : "booking_request";
+  const next = status === "provider_accepted" ? "inquiry" : status === "provider_declined" ? "property_listings" : "booking_request";
   await db.from("conversations").update({
     current_step: next,
     context_data: { ...(q.data.context_data ?? {}), booking_id: booking.id, booking_status: status, provider_response: providerMessage },
@@ -35,7 +44,7 @@ Deno.serve(async (req: Request) => {
     const message = String(body?.message ?? "").trim();
     if (!phone || !message) return json({ error: "phone_number and message are required" }, 400);
     const provider = await findProvider(phone);
-    if (!provider) return json({ handled: false, error: "Provider not found or inactive" }, 404);
+    if (!provider) return json({ handled: false, error: "Verified provider not found" }, 404);
     const cmd = message.toLowerCase();
     if (["hi", "hello", "hey", "menu", "provider_menu", "start", "booking_requests"].includes(cmd)) {
       const q = await db.from("bookings").select("id,booking_number,guest_name,guest_phone,property_id,status,created_at,additional_info_requested,properties(name,property_no)").eq("provider_id", provider.id).eq("status", "pending").order("created_at", { ascending: true }).limit(10);
@@ -81,8 +90,7 @@ Deno.serve(async (req: Request) => {
       if (!upd.data) return json({ handled: true, reply: "This request was processed by another action. Type menu to refresh." });
       await updateConversation({ ...b, ...upd.data }, status, patch.provider_response);
       const outcome = choice === "accept" ? "accepted" : "declined";
-      const notifyText = "Garikai Realty booking update\nBooking reference: " + (b.booking_number ?? bookingId.slice(0, 8)) + "\nProperty: " + (b.properties?.name ?? "your selected property") + "\nStatus: " + (choice === "accept" ? "The provider has accepted your request. The booking is not confirmed until the next steps are completed." : "The provider has declined your request. Please return to the listings to choose another property.") ;
-      return json({ handled: true, reply: "Booking " + (b.booking_number ?? bookingId.slice(0, 8)) + " has been " + outcome + ". The student has been queued for a status update. Type menu to review other requests.", notify_student: b.guest_phone ? { phone_number: b.guest_phone, text: notifyText } : null });
+      const bookingRef=String(b.booking_number??"");const propertyName=String(b.properties?.name??"Not set");const providerDetails=await db.from("providers").select("phone_number,first_name,surname,gender").eq("id",provider.id).maybeSingle();if(providerDetails.error)throw providerDetails.error;const pendingQ=choice==="accept"?await db.from("bookings").select("id",{count:"exact",head:true}).eq("provider_id",provider.id).eq("status","pending").neq("id",bookingId):null;if(pendingQ?.error)throw pendingQ.error;const title=providerDetails.data?.gender==="Male"?"Mr":providerDetails.data?.gender==="Female"?"Ms":"";const firstInitial=String(providerDetails.data?.first_name??"").trim().charAt(0).toUpperCase();const surname=String(providerDetails.data?.surname??"").trim();const outcomeText=choice==="accept"?"Your accommodation at "+propertyName+" has been confirmed. Booking completed.":"Your accommodation request at "+propertyName+" has been rejected by the provider. Find another available accommodation.";const notifyText=outcomeText+"\n\nBooking No: "+bookingRef;const providerReply=choice==="accept"?"BOOKING CONFIRMED\n\nYou confirmed booking request.\n\nBooking No: "+bookingRef+"\n\nContact Name: "+String(b.guest_name??"Not set")+"\n\nContact Number: "+String(b.guest_phone??"Not set")+"\n\nStatus: Accepted"+((pendingQ?.count??0)>0?"\n\nYou have "+pendingQ?.count+" pending booking requests.":""):"BOOKING REJECTED\n\nYou rejected booking request\n\nBooking No: "+bookingRef+"\n\nStatus: Rejected";return json({handled:true,reply:providerReply,notify_student:b.guest_phone?{phone_number:b.guest_phone,status:outcome,booking_reference:bookingRef,property_name:propertyName,provider_title:title,provider_first_initial:firstInitial,provider_surname:surname,provider_phone_number:String(providerDetails.data?.phone_number??"").replace(/\D/g,""),student_name:String(b.guest_name??"Student"),text:notifyText}:null,pending_unanswered_count:pendingQ?.count??0});
     }
     return json({ handled: true, reply: "Provider menu: type menu to view pending booking requests, then select a request to accept or decline it.", interactive: { type: "button", body: "Provider menu", buttons: [{ id: "booking_requests", title: "View requests" }] } });
   } catch (e) {
