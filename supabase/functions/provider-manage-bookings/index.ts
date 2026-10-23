@@ -91,7 +91,7 @@ Deno.serve(async (req: Request) => {
       await updateConversation({ ...b, ...upd.data }, status, patch.provider_response);
       const outcome = choice === "accept" ? "accepted" : "declined";
       const notifyText = "Garikai Realty booking update\nBooking reference: " + (b.booking_number ?? bookingId.slice(0, 8)) + "\nProperty: " + (b.properties?.name ?? "your selected property") + "\nStatus: " + (choice === "accept" ? "The provider has accepted your request. The booking is not confirmed until the next steps are completed." : "The provider has declined your request. Please return to the listings to choose another property.") ;
-      return json({ handled: true, reply: "Booking " + (b.booking_number ?? bookingId.slice(0, 8)) + " has been " + outcome + ". The student has been queued for a status update. Type menu to review other requests.", notify_student: b.guest_phone ? { phone_number: b.guest_phone, text: notifyText } : null });
+      return json({ handled: true, reply: "Booking " + (b.booking_number ?? bookingId.slice(0, 8)) + " has been " + outcome + ". I will attempt to send the student a status update. Type menu to review other requests.", notify_student: b.guest_phone ? { phone_number: b.guest_phone, text: notifyText } : null });
     }
     return json({ handled: true, reply: "Provider menu: type menu to view pending booking requests, then select a request to accept or decline it.", interactive: { type: "button", body: "Provider menu", buttons: [{ id: "booking_requests", title: "View requests" }] } });
   } catch (e) {
