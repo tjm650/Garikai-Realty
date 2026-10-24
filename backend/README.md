@@ -1,15 +1,17 @@
-# Garikai Realty Supabase Functions
+# Garikai Realty Backend (Supabase)
+
+This directory contains the repository source for the hosted Supabase backend: Edge Functions and SQL migrations. The folder name is `backend/` for project organization; the deployed platform remains Supabase.
 
 ## Production project
 - Project ref: fpktfufvnfauahriwjuf
-- Production schema and deployed function inventory must be treated as authoritative until repository recovery is complete.
-- Django is out of scope for this Supabase-only function restructuring.
+- Production schema and deployed function inventory are authoritative until repository recovery is complete.
+- Django is retired and out of scope.
 
 ## Function map
 | Function | Responsibility |
 |---|---|
 | whatsapp-webhook | Meta webhook verification, inbound event ledger, delivery statuses, outbound messages and Student/Provider dispatch |
-| student-accommodation-search | Student accommodation workflow, including guided/all-in-one requirements, property results, selection and booking-request progression |
+| student-accommodation-search | Student accommodation workflow, guided/all-in-one requirements, property results, selection and booking-request progression |
 | property-search | Retained matching/ranking endpoint called by student-accommodation-search; do not merge or delete |
 | student-my-bookings | Student booking history, linked by WhatsApp phone and conversation |
 | provider-conversation | Provider identity gate and menu router |
@@ -30,3 +32,6 @@
 - Production had ten migrations before this implementation wave.
 - The source repository previously tracked fewer migration files than production. Do not fabricate historical migrations. Capture the live schema baseline and recover original migrations where possible.
 - New database changes must be added as migration files and verified against production.
+
+## Deployment caution
+The Supabase CLI normally expects a `supabase/` directory. Since this repository stores the source in `backend/`, do not run CLI deploy or migration commands until the CLI/deployment workflow is explicitly configured for the renamed directory. This folder rename does not change deployed Supabase resources.
