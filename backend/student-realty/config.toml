@@ -6,6 +6,7 @@ import_map = "./functions/whatsapp-webhook/deno.json"
 
 [functions.student-conversation]
 verify_jwt = false
+import_map = "./functions/student-conversation/deno.json"
 
 [functions.student-accommodation-search]
 verify_jwt = false
