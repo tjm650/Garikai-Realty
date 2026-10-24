@@ -1,6 +1,6 @@
 # Production completion checklist — Garikai Realty Supabase
 
-Scope is Supabase Edge Functions and database only. Django is explicitly excluded. The existing student function and migration source is in `student-realty/`; `backend/main-realty/` is a separate scaffold and is not part of the existing student deployment.
+Scope is Supabase Edge Functions and database only. Django is explicitly excluded. The existing student function and migration source is in `backend/student-realty/`; `backend/main-realty/` is a separate scaffold and is not part of the existing student deployment.
 
 ## Current inventory
 
@@ -13,7 +13,7 @@ Scope is Supabase Edge Functions and database only. Django is explicitly exclude
 
 Four SQL candidates from `agent/migrate-to-supabase-foundation` have been copied to `docs/supabase-migration-recovery/`. They are explicitly marked candidate-only and are NOT active migrations. Production versions differ from the source filenames and initial schema plus several historical migrations remain unrecovered. Do not run `supabase db reset`, replay this incomplete history against production, or promote candidates until each has been compared to the live schema, functions, policies, constraints and grants.
 
-The active student migration directory is `student-realty/migrations/` and contains the transport-ledger migration and the October security/performance migrations. The October migrations have already been applied to production and tracked in GitHub. Future schema changes must use new migrations; do not rewrite historical applied migrations to match current source. The Supabase CLI normally expects `supabase/`; the repository wrapper stages only `student-realty/` as the CLI project.
+The active student migration directory is `backend/student-realty/migrations/` and contains the transport-ledger migration and the October security/performance migrations. The October migrations have already been applied to production and tracked in GitHub. Future schema changes must use new migrations; do not rewrite historical applied migrations to match current source. The Supabase CLI normally expects `supabase/`; the repository wrapper stages only `backend/student-realty/` as the CLI project.
 
 ## Mandatory pre-release environment checks
 

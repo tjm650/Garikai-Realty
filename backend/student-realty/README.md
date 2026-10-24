@@ -1,6 +1,6 @@
 # Garikai Realty — Students Realty Backend (Supabase)
 
-This directory contains the existing production student accommodation backend source: Supabase Edge Functions, CLI configuration, and SQL migration files. It is maintained at the repository root so the student system has a clear, stable location separate from the future national realty backend scaffold.
+This directory contains the existing production student accommodation backend source: Supabase Edge Functions, CLI configuration, and SQL migration files. It lives in `backend/student-realty/`, alongside the separate `backend/main-realty/` scaffold.
 
 ## Production project
 - Project ref: `fpktfufvnfauahriwjuf`
@@ -10,7 +10,7 @@ This directory contains the existing production student accommodation backend so
 
 ## Supabase CLI configuration
 
-`student-realty/config.toml` contains the project ref and per-function settings, including existing JWT-verification behavior and each function's Deno import-map file. The CLI conventionally expects a directory named `supabase/`, so use the repository wrapper from the repository root:
+`backend/student-realty/config.toml` contains the project ref and per-function settings, including existing JWT-verification behavior and each function's Deno import-map file. Use the repository wrapper from the repository root so the CLI reads configuration and function source directly from this backend directory:
 
 ```bash
 # Inspect CLI help through the student backend layout
@@ -20,7 +20,7 @@ This directory contains the existing production student accommodation backend so
 ./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
 ```
 
-The wrapper stages only `student-realty/` as a temporary `supabase/` directory for the CLI and removes that temporary copy afterwards. It does not include `backend/main-realty/`. Authenticate the Supabase CLI first using `supabase login`; do not put access tokens in repository files.
+The wrapper passes `backend/student-realty/` as the Supabase CLI work directory. It does not include `backend/main-realty/`. Authenticate the Supabase CLI first using `supabase login`; do not put access tokens in repository files.
 
 **Production safety:** the checked-in migration history is incomplete. The wrapper intentionally blocks database migration/push/reset/pull/repair/diff operations until the missing historical migrations are recovered and reviewed. Deploy only a specific Edge Function after reviewing its source and confirming the required server-side secrets are configured. Do not deploy all functions as a batch.
 
