@@ -1,6 +1,6 @@
 # Production completion checklist — Garikai Realty Supabase
 
-Scope is Supabase Edge Functions and database only. Django is explicitly excluded. The repository stores active function and migration source in `backend/`; the hosted platform remains Supabase.
+Scope is Supabase Edge Functions and database only. Django is explicitly excluded. The existing student function and migration source is in `backend/students-realty/`; `backend/main-realty/` is a separate scaffold and is not part of the existing student deployment.
 
 ## Current inventory
 
@@ -13,7 +13,7 @@ Scope is Supabase Edge Functions and database only. Django is explicitly exclude
 
 Four SQL candidates from `agent/migrate-to-supabase-foundation` have been copied to `docs/supabase-migration-recovery/`. They are explicitly marked candidate-only and are NOT active migrations. Production versions differ from the source filenames and initial schema plus several historical migrations remain unrecovered. Do not run `supabase db reset`, replay this incomplete history against production, or promote candidates until each has been compared to the live schema, functions, policies, constraints and grants.
 
-The active migration directory is `backend/migrations/` and contains the transport-ledger migration and the October security/performance migrations. The October migrations have already been applied to production and tracked in GitHub. Future schema changes must use new migrations; do not rewrite historical applied migrations to match current source. The Supabase CLI normally expects `supabase/`; configure deployment tooling for `backend/` before running CLI commands.
+The active student migration directory is `backend/students-realty/migrations/` and contains the transport-ledger migration and the October security/performance migrations. The October migrations have already been applied to production and tracked in GitHub. Future schema changes must use new migrations; do not rewrite historical applied migrations to match current source. The Supabase CLI normally expects `supabase/`; the repository wrapper stages only `backend/students-realty/` as the CLI project.
 
 ## Mandatory pre-release environment checks
 
@@ -46,7 +46,7 @@ Run with a dedicated test WhatsApp number and disposable test records. Record ti
 
 1. Run `deno check` against each function entrypoint with its import map.
 2. Run lint/type checks and unit tests for parsing, routing, ownership guards and idempotency.
-3. Run a clean local Supabase migration replay only after the full historical baseline is recovered and the CLI is configured for `backend/`.
+3. Run a clean local Supabase migration replay only after the full historical baseline is recovered and the CLI is configured for the student project.
 4. Check Supabase security and performance advisors after the final changes.
 5. Confirm production logs for each test case and capture the exact deployed function versions.
 6. Verify rollback by redeploying the previous known-good function source and documenting the migration forward-fix strategy.

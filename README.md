@@ -1,15 +1,16 @@
 # Garikai Realty
 
-Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation through WhatsApp conversations.
+Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation through WhatsApp conversations, with a separate backend area reserved for future national realty capabilities.
 
 ## Architecture
 
 - **Frontend:** Next.js, React and TypeScript in `frontend/`; deployed independently on Vercel.
-- **Backend and workflows:** Supabase Database and Supabase Edge Functions source are stored in `backend/`.
-- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `backend/functions/whatsapp-webhook`.
+- **Student system:** Existing production Supabase functions, configuration and migrations live in `backend/students-realty/`.
+- **Main realty system:** `backend/main-realty/` is the separate starting point for the future national realty backend. It is intentionally not connected to a Supabase project yet.
+- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `backend/students-realty/functions/whatsapp-webhook`.
 - **Privacy:** Public-facing privacy pages in `frontend/` and policy documents in `privacy/`.
 
-The repository directory is named `backend/`, while the hosted backend remains Supabase. The Supabase CLI configuration lives at `backend/config.toml`. Use `./scripts/supabase.sh` from the repository root; it stages a temporary CLI-compatible `supabase/` directory and removes it afterwards. No permanent `supabase/` directory is required.
+The repository separates the two backend projects in source control. The hosted student backend remains the existing Supabase project `fpktfufvnfauahriwjuf`; moving its source directory does not create a new Supabase project or deploy any code. The CLI wrapper stages only `backend/students-realty/` as a temporary CLI-compatible `supabase/` directory. No permanent `supabase/` directory is required.
 
 The Django backend and its Render deployment have been retired. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
 
@@ -17,19 +18,24 @@ The Django backend and its Render deployment have been retired. Do not reintrodu
 
 The Meta callback must continue pointing to the deployed Supabase `whatsapp-webhook` Edge Function. That function verifies Meta webhook signatures, records inbound events and delivery statuses, sends outbound messages through Meta's Graph API, and routes messages to the relevant Supabase Edge Functions.
 
-Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `backend/README.md` for the function map and deployment procedure.
+Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `backend/students-realty/README.md` for the function map and deployment procedure.
 
 ## Project structure
 
 ```text
 Garikai Realty/
-├── frontend/   # Next.js website and privacy pages
-├── backend/    # Supabase config, migrations and Edge Functions source
-├── scripts/    # Supabase CLI compatibility wrapper
-├── privacy/    # Privacy policy documents
-├── docs/       # Release and migration reference material
-├── .github/    # Repository automation
-├── Makefile    # Frontend development shortcuts
+├── frontend/                 # Next.js website and privacy pages
+├── backend/
+│   ├── students-realty/      # Existing student accommodation Supabase project source
+│   │   ├── functions/
+│   │   ├── migrations/
+│   │   └── config.toml
+│   └── main-realty/          # Scaffold for the future national realty backend
+├── scripts/                  # Supabase CLI compatibility wrapper
+├── privacy/                  # Privacy policy documents
+├── docs/                     # Release and migration reference material
+├── .github/                  # Repository automation
+├── Makefile                  # Frontend development shortcuts
 └── README.md
 ```
 
@@ -51,9 +57,9 @@ npm run lint
 npm run build
 ```
 
-## Supabase CLI
+## Student Supabase CLI
 
-Authenticate once on your development machine with `supabase login`, then use the wrapper for CLI commands. For example:
+Authenticate once on your development machine with `supabase login`, then use the wrapper for student backend CLI commands. For example:
 
 ```bash
 ./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
@@ -66,6 +72,7 @@ Deploy one reviewed function at a time. The wrapper blocks database migration/pu
 - Keep the public Meta webhook on Supabase; do not point Meta back to a retired Django endpoint.
 - Keep WhatsApp credentials server-side.
 - Preserve the existing Supabase schema, migrations, and active workflow functions unless a separate change explicitly authorizes modifying them.
+- The main-realty scaffold must not be connected to or deployed against the student production project.
 - Payment processing remains a separate future phase.
 
 This project is proprietary software. All rights reserved.
