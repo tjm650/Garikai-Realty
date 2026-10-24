@@ -25,13 +25,12 @@ Configure credentials as server-side Supabase Edge Function secrets, never in fr
 ```text
 Garikai Realty/
 ├── frontend/                 # Next.js website and privacy pages
-├── backend/
-├── student-realty/          # Existing student accommodation Supabase project source
+├── student-realty/           # Existing student accommodation Supabase project source
 │   ├── functions/
 │   ├── migrations/
 │   └── config.toml
-└── backend/
-    └── main-realty/          # Scaffold for the future national realty backend
+├── backend/
+│   └── main-realty/          # Scaffold for the future national realty backend
 ├── scripts/                  # Supabase CLI compatibility wrapper
 ├── privacy/                  # Privacy policy documents
 ├── docs/                     # Release and migration reference material
