@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# The student Supabase project lives in backend/student-realty.
-# Always run the CLI against that exact project directory; never include
-# backend/main-realty in student-project operations.
+# Source the existing student Supabase project from backend/student-realty.
+# Only this project is staged for student CLI operations; main-realty is excluded.
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 STUDENT_BACKEND_DIR="$ROOT_DIR/backend/student-realty"
 if [[ ! -d "$STUDENT_BACKEND_DIR" ]]; then
@@ -28,5 +27,10 @@ if [[ "${1:-}" == "migration" && "${2:-}" =~ ^(up|repair|squash)$ ]]; then
   exit 2
 fi
 
-# Supabase CLI reads config.toml and functions directly from this project folder.
-exec supabase --workdir "$STUDENT_BACKEND_DIR" "$@"
+# Supabase CLI expects the project files in a supabase/ directory under workdir.
+# Copy only from backend/student-realty; never mix in backend/main-realty.
+TEMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$TEMP_DIR"' EXIT
+mkdir -p "$TEMP_DIR/supabase"
+cp -R "$STUDENT_BACKEND_DIR/." "$TEMP_DIR/supabase/"
+supabase --workdir "$TEMP_DIR" "$@"

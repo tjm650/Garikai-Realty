@@ -20,7 +20,7 @@ This directory contains the existing production student accommodation backend so
 ./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
 ```
 
-The wrapper passes `backend/student-realty/` as the Supabase CLI work directory. It does not include `backend/main-realty/`. Authenticate the Supabase CLI first using `supabase login`; do not put access tokens in repository files.
+The wrapper stages only `backend/student-realty/` into a temporary CLI-compatible `supabase/` directory, then runs the CLI against that temporary project. Source files are imported from `backend/student-realty/`; `backend/main-realty/` is never included in student operations. Authenticate the Supabase CLI first using `supabase login`; do not put access tokens in repository files.
 
 **Production safety:** the checked-in migration history is incomplete. The wrapper intentionally blocks database migration/push/reset/pull/repair/diff operations until the missing historical migrations are recovered and reviewed. Deploy only a specific Edge Function after reviewing its source and confirming the required server-side secrets are configured. Do not deploy all functions as a batch.
 
