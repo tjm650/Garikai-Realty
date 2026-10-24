@@ -46,7 +46,7 @@ const NavigationBar: React.FC = () => {
         <div className="flex justify-between items-center h-16 ">
           <div className="flex gap-20">
             {/* Logo/Brand */}
-            <div className="flex items-center">
+            <div className="flex items-center font-bold">
               <Link href="/" className="flex items-center space-x-2">
                 <img
                   src={logo}
@@ -63,7 +63,7 @@ const NavigationBar: React.FC = () => {
                 href="/"
                 className={`${
                   pathname === "/" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200`}
+                } hover:text-[#1F4788] transition-colors duration-200 `}
               >
                 Home
               </Link>
