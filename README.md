@@ -9,22 +9,23 @@ Garikai Realty is an AI-powered student accommodation platform that helps studen
 - **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `backend/functions/whatsapp-webhook`.
 - **Privacy:** Public-facing privacy pages in `frontend/` and policy documents in `privacy/`.
 
-The `backend/` directory contains the repository's Supabase migrations and Edge Function source. Renaming this folder does not rename or migrate the hosted Supabase project, deployed functions, database, secrets, or Meta webhook URL. The Supabase CLI and deployment scripts must be configured to use this non-default directory before running CLI-based deploy or migration commands.
+The repository directory is named `backend/`, while the hosted backend remains Supabase. The Supabase CLI configuration lives at `backend/config.toml`. Use `./scripts/supabase.sh` from the repository root; it stages a temporary CLI-compatible `supabase/` directory and removes it afterwards. No permanent `supabase/` directory is required.
 
-The Django backend and its Render deployment have been retired from this repository. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
+The Django backend and its Render deployment have been retired. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
 
 ## Meta WhatsApp and Supabase
 
 The Meta callback must continue pointing to the deployed Supabase `whatsapp-webhook` Edge Function. That function verifies Meta webhook signatures, records inbound events and delivery statuses, sends outbound messages through Meta's Graph API, and routes messages to the relevant Supabase Edge Functions.
 
-Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. Follow `backend/README.md` and the release checklist in `docs/` for the current function map and deployment checks.
+Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `backend/README.md` for the function map and deployment procedure.
 
 ## Project structure
 
 ```text
 Garikai Realty/
 ├── frontend/   # Next.js website and privacy pages
-├── backend/    # Supabase migrations and Edge Functions source
+├── backend/    # Supabase config, migrations and Edge Functions source
+├── scripts/    # Supabase CLI compatibility wrapper
 ├── privacy/    # Privacy policy documents
 ├── docs/       # Release and migration reference material
 ├── .github/    # Repository automation
@@ -50,9 +51,15 @@ npm run lint
 npm run build
 ```
 
-## Supabase development and deployment
+## Supabase CLI
 
-Use the Supabase CLI and the project-specific instructions in `backend/README.md`. The repository folder is named `backend/`, but the hosted backend remains Supabase. Review migrations before applying them to a live project. Ensure the CLI/deployment tooling is explicitly pointed at this folder before deploying functions or applying migrations. Never commit credentials.
+Authenticate once on your development machine with `supabase login`, then use the wrapper for CLI commands. For example:
+
+```bash
+./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
+```
+
+Deploy one reviewed function at a time. The wrapper blocks database migration/push/reset/pull/repair/diff commands because the repository's historical migration source is incomplete. Do not bypass this safeguard until migration history has been recovered and reviewed. Never commit credentials.
 
 ## Operational notes
 
