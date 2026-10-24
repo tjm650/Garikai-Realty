@@ -5,12 +5,12 @@ Garikai Realty is an AI-powered student accommodation platform that helps studen
 ## Architecture
 
 - **Frontend:** Next.js, React and TypeScript in `frontend/`; deployed independently on Vercel.
-- **Student system:** Existing production Supabase functions, configuration and migrations live in `backend/students-realty/`.
+- **Student system:** Existing production Supabase functions, configuration and migrations live in `student-realty/`.
 - **Main realty system:** `backend/main-realty/` is the separate starting point for the future national realty backend. It is intentionally not connected to a Supabase project yet.
-- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `backend/students-realty/functions/whatsapp-webhook`.
+- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `student-realty/functions/whatsapp-webhook`.
 - **Privacy:** Public-facing privacy pages in `frontend/` and policy documents in `privacy/`.
 
-The repository separates the two backend projects in source control. The hosted student backend remains the existing Supabase project `fpktfufvnfauahriwjuf`; moving its source directory does not create a new Supabase project or deploy any code. The CLI wrapper stages only `backend/students-realty/` as a temporary CLI-compatible `supabase/` directory. No permanent `supabase/` directory is required.
+The student system source is maintained in [`student-realty/`](https://github.com/tjm650/Jeff/tree/main/student-realty). The future national backend scaffold remains in `backend/main-realty/`. The repository separates these two systems in source control. The hosted student backend remains the existing Supabase project `fpktfufvnfauahriwjuf`; moving its source directory does not create a new Supabase project or deploy any code. The CLI wrapper stages only `student-realty/` as a temporary CLI-compatible `supabase/` directory. No permanent `supabase/` directory is required.
 
 The Django backend and its Render deployment have been retired. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
 
@@ -18,7 +18,7 @@ The Django backend and its Render deployment have been retired. Do not reintrodu
 
 The Meta callback must continue pointing to the deployed Supabase `whatsapp-webhook` Edge Function. That function verifies Meta webhook signatures, records inbound events and delivery statuses, sends outbound messages through Meta's Graph API, and routes messages to the relevant Supabase Edge Functions.
 
-Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `backend/students-realty/README.md` for the function map and deployment procedure.
+Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `student-realty/README.md` for the function map and deployment procedure.
 
 ## Project structure
 
@@ -26,11 +26,12 @@ Configure credentials as server-side Supabase Edge Function secrets, never in fr
 Garikai Realty/
 ├── frontend/                 # Next.js website and privacy pages
 ├── backend/
-│   ├── students-realty/      # Existing student accommodation Supabase project source
-│   │   ├── functions/
-│   │   ├── migrations/
-│   │   └── config.toml
-│   └── main-realty/          # Scaffold for the future national realty backend
+├── student-realty/          # Existing student accommodation Supabase project source
+│   ├── functions/
+│   ├── migrations/
+│   └── config.toml
+└── backend/
+    └── main-realty/          # Scaffold for the future national realty backend
 ├── scripts/                  # Supabase CLI compatibility wrapper
 ├── privacy/                  # Privacy policy documents
 ├── docs/                     # Release and migration reference material

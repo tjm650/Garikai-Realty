@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # Supabase CLI expects a ./supabase directory. The existing student project
-# lives in ./backend/students-realty; stage only that project so the future
+# lives in ./student-realty; stage only that project so the future
 # main-realty project can never be included in student CLI operations.
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-STUDENT_BACKEND_DIR="$ROOT_DIR/backend/students-realty"
+STUDENT_BACKEND_DIR="$ROOT_DIR/student-realty"
 if [[ ! -d "$STUDENT_BACKEND_DIR" ]]; then
   echo "Student backend directory not found: $STUDENT_BACKEND_DIR" >&2
   exit 2
@@ -20,7 +20,7 @@ fi
 # The checked-in student migration history is incomplete. Block commands that
 # could mutate or reconcile a database until the migration baseline is recovered.
 if [[ "${1:-}" == "db" && "${2:-}" =~ ^(push|reset|pull|repair|diff)$ ]]; then
-  echo "Blocked: database mutation/reconciliation is disabled until backend/students-realty/migrations history is fully recovered and reviewed." >&2
+  echo "Blocked: database mutation/reconciliation is disabled until student-realty/migrations history is fully recovered and reviewed." >&2
   exit 2
 fi
 if [[ "${1:-}" == "migration" && "${2:-}" =~ ^(up|repair|squash)$ ]]; then
