@@ -1,0 +1,40 @@
+project_id = "fpktfufvnfauahriwjuf"
+
+[functions.whatsapp-webhook]
+verify_jwt = false
+import_map = "./functions/whatsapp-webhook/deno.json"
+
+[functions.student-accommodation-search]
+verify_jwt = false
+import_map = "./functions/student-accommodation-search/deno.json"
+
+[functions.property-search]
+verify_jwt = true
+import_map = "./functions/property-search/deno.json"
+
+[functions.student-my-bookings]
+verify_jwt = false
+import_map = "./functions/student-my-bookings/deno.json"
+
+[functions.about-us]
+verify_jwt = false
+import_map = "./functions/about-us/deno.json"
+
+[functions.jeff-conversation]
+verify_jwt = false
+import_map = "./functions/jeff-conversation/deno.json"
+
+[functions.provider-booking-webhook]
+verify_jwt = false
+
+[functions.provider-conversation]
+verify_jwt = false
+
+[functions.provider-manage-bookings]
+verify_jwt = false
+
+[functions.provider-manage-properties]
+verify_jwt = false
+
+[functions.provider-property-insights]
+verify_jwt = false

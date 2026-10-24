@@ -1,11 +1,27 @@
 # Garikai Realty Backend (Supabase)
 
-This directory contains the repository source for the hosted Supabase backend: Edge Functions and SQL migrations. The folder name is `backend/` for project organization; the deployed platform remains Supabase.
+This directory contains the repository source for the hosted Supabase backend: Edge Functions, CLI configuration, and SQL migration files. The folder is named `backend/`; the deployed platform remains Supabase.
 
 ## Production project
-- Project ref: fpktfufvnfauahriwjuf
-- Production schema and deployed function inventory are authoritative until repository recovery is complete.
+- Project ref: `fpktfufvnfauahriwjuf`
+- Production schema and deployed function inventory are authoritative.
 - Django is retired and out of scope.
+
+## Supabase CLI configuration
+
+`backend/config.toml` contains the project ref and per-function settings, including the existing JWT-verification behavior and each function's Deno import-map file. The CLI conventionally expects a directory named `supabase/`, so use the repository wrapper from the repository root:
+
+```bash
+# Inspect CLI help through the backend layout
+./scripts/supabase.sh --help
+
+# Deploy one explicitly selected function only
+./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
+```
+
+The wrapper stages `backend/` as a temporary `supabase/` directory for the CLI and removes that temporary copy afterwards. No permanent `supabase/` directory is created. Authenticate the Supabase CLI first using `supabase login`; do not put access tokens in repository files.
+
+**Production safety:** the checked-in migration history is incomplete. The wrapper intentionally blocks database migration/push/reset/pull/repair/diff operations until the missing historical migrations are recovered and reviewed. Deploy only a specific Edge Function after reviewing its source and confirming the required server-side secrets are configured. Do not deploy all functions as a batch.
 
 ## Function map
 | Function | Responsibility |
@@ -20,18 +36,14 @@ This directory contains the repository source for the hosted Supabase backend: E
 | provider-property-insights | Provider-owned property and booking summary |
 | about-us | Shared company information endpoint |
 | provider-booking-webhook | Legacy/internal provider booking RPC endpoint; retain until callers and compatibility are verified |
-| jeff-conversation | Legacy Student conversation endpoint retained during transition; webhook now defaults to student-accommodation-search |
+| jeff-conversation | Legacy Student conversation endpoint retained during transition |
 
-## Internal security contract
-- Public Meta webhook: JWT verification is disabled by design; Meta signature verification is required in the function.
-- Student/Provider internal functions: JWT verification is disabled only because these are server-to-server endpoints. They must validate the appropriate internal bearer token or PROVIDER_WEBHOOK_SECRET header.
-- Never expose SUPABASE_SERVICE_ROLE_KEY to browser code.
+## Security contract
+- Public Meta webhook: JWT verification is disabled by design; Meta signature verification must remain enabled in the function.
+- Internal functions: JWT verification is disabled only where server-to-server calls require it. The functions must validate the appropriate internal bearer token or `PROVIDER_WEBHOOK_SECRET` header.
+- Never expose `SUPABASE_SERVICE_ROLE_KEY` to browser code.
 - Provider mutations must filter by the provider ID resolved from the verified provider phone and must not trust a provider ID supplied by the caller.
+- Never commit Supabase access tokens, database passwords, WhatsApp credentials, or other secrets.
 
 ## Migration notes
-- Production had ten migrations before this implementation wave.
-- The source repository previously tracked fewer migration files than production. Do not fabricate historical migrations. Capture the live schema baseline and recover original migrations where possible.
-- New database changes must be added as migration files and verified against production.
-
-## Deployment caution
-The Supabase CLI normally expects a `supabase/` directory. Since this repository stores the source in `backend/`, do not run CLI deploy or migration commands until the CLI/deployment workflow is explicitly configured for the renamed directory. This folder rename does not change deployed Supabase resources.
+Production migration history contains versions whose original SQL is not all present in this repository. Do not fabricate historical migrations. Recover and compare the original migrations or a reviewed baseline before running any migration replay or database mutation commands. Add future database changes as new migration files and review them before production application.
