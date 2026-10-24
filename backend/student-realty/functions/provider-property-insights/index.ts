@@ -2,12 +2,20 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
 const json = (body: unknown, status = 200) => Response.json(body, { status });
-const digits = (v: unknown) => String(v ?? "").replace(/\D/g, "");
+function normalizeZimbabwePhone(v: unknown): string {
+  let value = String(v ?? "").trim().replace(/\D/g, "");
+  if (!value) return "";
+  if (value.startsWith("00")) value = value.slice(2);
+  if (value.startsWith("263")) value = value.slice(3);
+  else if (value.startsWith("0")) value = value.slice(1);
+  if (!/^7\d{8}$/.test(value)) return "";
+  return "+263" + value;
+}
 async function providerByPhone(phone: string) {
   const q = await db.from("providers").select("id,business_name,phone_number,is_active,verified")
     .eq("is_active", true).eq("verified", true);
   if (q.error) throw q.error;
-  return (q.data ?? []).find((p: any) => digits(p.phone_number) === digits(phone)) ?? null;
+  return (q.data ?? []).find((p: any) => normalizeZimbabwePhone(p.phone_number) !== "" && normalizeZimbabwePhone(p.phone_number) === normalizeZimbabwePhone(phone)) ?? null;
 }
 Deno.serve(async (req: Request) => {
   if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
@@ -18,67 +26,114 @@ Deno.serve(async (req: Request) => {
     const phone = String(body?.phone_number ?? "");
     const command = String(body?.message ?? "").trim();
     if (!phone || !command) return json({ error: "phone_number and message are required" }, 400);
-    const provider = await providerByPhone(phone);
-    if (!provider) return json({ handled: false, error: "Provider not found or inactive" }, 404);
+    const account = await providerByPhone(phone);
+    if (!account) return json({ handled: false, error: "Verified provider not found" }, 404);
     const lower = command.toLowerCase();
-    const updateMatch = command.match(/^update\s+([a-z0-9-]+)\s+(\{[\s\S]+\})$/i);
-    if (updateMatch) {
-      let insights: any;
-      try { insights = JSON.parse(updateMatch[2]); } catch { return json({ handled: true, reply: "I could not read that JSON. Please use: update PROPERTY-NO {\"available_rooms\":10,\"pricing\":{\"price/month\":100}}" }); }
-      if (!insights || typeof insights !== "object" || Array.isArray(insights)) return json({ handled: true, reply: "The update must be a JSON object." });
-      const result = await db.rpc("submit_provider_insights", { p_provider_id: provider.id, p_property_no: updateMatch[1], p_insights: insights });
-      if (result.error) throw result.error;
-      const outcome = result.data ?? {};
-      return json({ handled: true, reply: outcome.success
-        ? "Property insights updated successfully. Updated fields: " + (outcome.updated_fields ?? []).join(", ")
-        : String(outcome.message ?? "No changes were applied."),
-        interactive: { type: "button", body: "Property insights", buttons: [
-          { id: "menu_insights", title: "Insights Menu" },
-          { id: "menu_properties", title: "My Properties" },
-          { id: "provider_menu", title: "Provider Menu" }
-        ] } });
-    }
     const selected = lower.match(/^provider_insight_([0-9a-f-]{36})$/i);
     if (selected) {
-      const q = await db.from("properties").select("id,property_no,name,available_rooms,total_rooms,available_1h_rooms,available_2h_rooms,available_3h_rooms,available_4h_rooms,price_per_month,price_per_week,price_per_day,price_per_semester,gender_preference,amenities")
-        .eq("id", selected[1]).eq("provider_id", provider.id).maybeSingle();
-      if (q.error) throw q.error;
-      const p = q.data;
+      const propertyQuery = await db.from("properties")
+        .select("id,property_no,name,available_1h_rooms,available_2h_rooms,available_3h_rooms,available_4h_rooms,total_1h_rooms,total_2h_rooms,total_3h_rooms,total_4h_rooms")
+        .eq("id", selected[1]).eq("provider_id", account.id).maybeSingle();
+      if (propertyQuery.error) throw propertyQuery.error;
+      const p = propertyQuery.data;
       if (!p) return json({ handled: true, reply: "That property was not found under your provider account." });
-      const sample = { available_rooms: p.available_rooms ?? 0, total_rooms: p.total_rooms ?? 0, available_slots: { "1h/room": p.available_1h_rooms ?? 0, "2h/room": p.available_2h_rooms ?? 0, "3h/room": p.available_3h_rooms ?? 0, "4h/room": p.available_4h_rooms ?? 0 }, pricing: { "price/month": p.price_per_month, "price/week": p.price_per_week, "price/day": p.price_per_day, "price/term": p.price_per_semester }, gender_preference: p.gender_preference };
-      return json({ handled: true, reply: "PROPERTY INSIGHTS • " + (p.name ?? p.property_no) + "\nProperty reference: " + p.property_no + "\nCurrent values: " + JSON.stringify(sample) + "\n\nTo update, send one message in this format:\nupdate " + p.property_no + " " + JSON.stringify({ available_rooms: 10, pricing: { "price/month": 100 } }) + "\n\nAllowed fields include total_rooms, available_rooms, available_slots, pricing, gender_preference and amenities." });
+
+      const harareYear = Number(new Intl.DateTimeFormat("en", { timeZone: "Africa/Harare", year: "numeric" }).format(new Date()));
+      const yearStart = new Date(`${harareYear}-01-01T00:00:00+02:00`).toISOString();
+      const nextYearStart = new Date(`${harareYear + 1}-01-01T00:00:00+02:00`).toISOString();
+      const [bookingQuery, reviewQuery] = await Promise.all([
+        db.from("bookings").select("status,created_at")
+          .eq("property_id", p.id).eq("provider_id", account.id)
+          .gte("created_at", yearStart).lt("created_at", nextYearStart),
+        db.from("reviews").select("rating").eq("property_id", p.id)
+      ]);
+      if (bookingQuery.error) throw bookingQuery.error;
+      if (reviewQuery.error) throw reviewQuery.error;
+      const bookings = bookingQuery.data ?? [];
+      const reviews = reviewQuery.data ?? [];
+      const countStatus = (statuses: string[]) => bookings.filter((booking: any) => statuses.includes(String(booking.status ?? "").toLowerCase())).length;
+      const averageRating = reviews.length
+        ? (reviews.reduce((sum: number, review: any) => sum + Number(review.rating ?? 0), 0) / reviews.length).toFixed(1)
+        : null;
+
+      const roomTypes = [
+        { total: p.total_1h_rooms, availableHeads: p.available_1h_rooms, headsPerRoom: 1 },
+        { total: p.total_2h_rooms, availableHeads: p.available_2h_rooms, headsPerRoom: 2 },
+        { total: p.total_3h_rooms, availableHeads: p.available_3h_rooms, headsPerRoom: 3 },
+        { total: p.total_4h_rooms, availableHeads: p.available_4h_rooms, headsPerRoom: 4 }
+      ];
+      const inventoryConfigured = roomTypes.every((room: any) => room.total !== null && room.total !== undefined);
+      let occupancyText = "Not configured.";
+      if (inventoryConfigured) {
+        const totalHeads = roomTypes.reduce((sum: number, room: any) => sum + Number(room.total) * room.headsPerRoom, 0);
+        const availableHeads = roomTypes.reduce((sum: number, room: any) => sum + Number(room.availableHeads ?? 0), 0);
+        const occupiedHeads = totalHeads - availableHeads;
+        if (totalHeads <= 0) {
+          occupancyText = "Not available — total room capacity is zero.";
+        } else if (availableHeads < 0 || availableHeads > totalHeads) {
+          occupancyText = "Unable to calculate — available head counts do not match total capacity.";
+        } else {
+          occupancyText = ((occupiedHeads / totalHeads) * 100).toFixed(1) + "% (" + occupiedHeads + "/" + totalHeads + " heads occupied)";
+        }
+      }
+
+      const reply = [
+        "*PROPERTY INSIGHTS* 📊",
+        "*" + String(p.name ?? "Unnamed property") + "*",
+        "Property reference: " + String(p.property_no ?? p.id),
+        "",
+        "*BOOKING ACTIVITY* 📓",
+        "Total booking requests: " + bookings.length,
+        "Pending: " + countStatus(["pending"]),
+        "Accepted / confirmed: " + countStatus(["provider_accepted", "confirmed"]),
+        "Completed: " + countStatus(["completed"]),
+        "Declined / cancelled: " + countStatus(["provider_declined", "cancelled"]),
+        "",
+        "*CURRENT OCCUPANCY* 👥",
+        "Percentage occupied: " + occupancyText,
+        "",
+        "*REVIEWS* 🧮",
+        "Total reviews: " + reviews.length,
+        "Average rating: " + (averageRating === null ? "No ratings yet" : averageRating + " / 5"),
+        "",
+        "_All insights are presented as per the property\u0027s yearly activity._"
+      ].join("\n");
+      return json({ handled: true, reply: reply.slice(0, 3000), interactive: { type: "button", body: "Property insights", buttons: [
+        { id: "provider_property_" + p.id, title: "Property Details" },
+        { id: "main_menu", title: "Main Menu" }
+      ] } });
     }
     if (["menu_insights", "property_insights", "insights", "provider_insights"].includes(lower)) {
-      const [properties, bookings] = await Promise.all([
-        db.from("properties").select("id,property_no,name,is_available").eq("provider_id", provider.id).order("name").limit(50),
-        db.from("bookings").select("id,status").eq("provider_id", provider.id).limit(1000)
-      ]);
+      const properties = await db.from("properties")
+        .select("id,property_no,name")
+        .eq("provider_id", account.id)
+        .order("name")
+        .limit(50);
       if (properties.error) throw properties.error;
-      if (bookings.error) throw bookings.error;
-      const props = properties.data ?? [], bs = bookings.data ?? [];
-      const count = (status: string) => bs.filter((b: any) => String(b.status ?? "").toLowerCase() === status).length;
-      const available = props.filter((p: any) => p.is_available === true).length;
-      const bodyText = [
-        "GARIKAI REALTY • PROPERTY INSIGHTS",
-        "Provider: " + (provider.business_name ?? "Provider"),
-        "Total properties: " + props.length,
-        "Available: " + available,
-        "Unavailable: " + (props.length - available),
-        "Booking requests recorded (latest 1,000): " + bs.length,
-        "Pending: " + count("pending"),
-        "Accepted: " + count("provider_accepted"),
-        "Confirmed: " + count("confirmed"),
-        "Declined: " + count("provider_declined"),
-        "",
-        "Select a property to view or update its insights."
-      ].join("\n");
-      return json({ handled: true, success: true, reply: bodyText, insights: {
-        property_count: props.length, available_properties: available, unavailable_properties: props.length - available,
-        booking_count: bs.length, pending_bookings: count("pending"), accepted_bookings: count("provider_accepted"),
-        confirmed_bookings: count("confirmed"), declined_bookings: count("provider_declined")
-      }, interactive: props.length ? { type: "list", header: "Property Insights", body: "Choose a property to inspect or update.", button: "Select property", sections: [{ title: "Your properties", rows: props.slice(0, 10).map((p: any) => ({ id: "provider_insight_" + p.id, title: String(p.name ?? p.property_no ?? "Property").slice(0, 24), description: String(p.property_no ?? p.id).slice(0, 72) })) }] } : { type: "button", body: "No properties are linked to your provider account.", buttons: [{ id: "provider_menu", title: "Provider Menu" }] } });
+      const props = properties.data ?? [];
+      return json({
+        handled: true,
+        reply: "",
+        interactive: props.length ? {
+          type: "list",
+          header: "Property Insights",
+          button: "Select property",
+          sections: [{
+            title: "Your properties",
+            rows: props.slice(0, 10).map((p: any) => ({
+              id: "provider_insight_" + p.id,
+              title: String(p.name ?? p.property_no ?? "Property").slice(0, 24),
+              description: String(p.property_no ?? p.id).slice(0, 72)
+            }))
+          }]
+        } : {
+          type: "button",
+          body: "No properties are linked to your provider account.",
+          buttons: [{ id: "main_menu", title: "Main Menu" }]
+        }
+      });
     }
-    return json({ handled: true, reply: "Choose Property Insights from the Provider Menu to view metrics or update a property's insights." });
+    return json({ handled: true, reply: "Open Property Insights from the Provider Menu." });
   } catch (error) {
     console.error("provider-property-insights failed", error);
     return json({ error: "Unable to manage property insights right now." }, 500);
