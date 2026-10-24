@@ -1,148 +1,62 @@
-# Garikai Realty - Student Accommodation Platform
+# Garikai Realty
 
-Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation near campus through WhatsApp conversations.
-
-## Current Free-Use Mode
-
-Garikai Realty is currently **free to use**. Payment processing and paid search tokens are disabled while the core accommodation workflow is being stabilized.
-
-Users can:
-- Find accommodation based on their requirements
-- Receive property recommendations
-- Select properties
-- Submit booking requests
-- Communicate with accommodation providers
-- Receive booking confirmations
-
-Payment architecture will be reintroduced later as a separate, deliberate feature once search and booking are fully stable.
+Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation through WhatsApp conversations.
 
 ## Architecture
 
-### Backend (`/backend`)
-- **Framework**: Django with Django REST Framework
-- **Database**: SQLite for development, PostgreSQL for production
-- **Real-time Communication**: Channels and WebSockets
-- **AI Services**: OpenAI, Google Gemini, and Anthropic integrations for NLP processing
-- **WhatsApp Integration**: Meta WhatsApp Cloud API
-- **Matching**: Property search and recommendation workflow
-- **Bookings**: Provider-facing booking and confirmation workflow
+- **Frontend:** Next.js, React and TypeScript in `frontend/`; deployed independently on Vercel.
+- **Backend and workflows:** Supabase Database and Supabase Edge Functions in `supabase/`.
+- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook handled by `supabase/functions/whatsapp-webhook`.
+- **Privacy:** Public-facing privacy pages in `frontend/` and policy documents in `privacy/`.
 
-### Frontend (`/frontend`)
-- **Framework**: Next.js with TypeScript
-- **Styling**: Tailwind CSS
-- **Animation**: Motion library
+The Django backend and its Render deployment have been retired from this repository. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
 
-### WhatsApp transport
+## Meta WhatsApp and Supabase
 
-Meta WhatsApp Cloud API is the only supported production WhatsApp transport.
+The Meta callback must point to the deployed Supabase `whatsapp-webhook` Edge Function. That function verifies Meta webhook signatures, records inbound events and delivery statuses, sends outbound messages through Meta's Graph API, and routes messages to the relevant Supabase Edge Functions.
 
-The public Meta webhook is owned by the Supabase Edge Function `whatsapp-webhook`.
+Configure required credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. Follow `supabase/README.md` and the release checklist in `docs/` for the current function map and deployment checks.
 
-The webhook:
-1. verifies the Meta signature;
-2. records every inbound/status event in Supabase;
-3. deduplicates Meta retries by event key;
-4. records inbound/outbound message state;
-5. invokes the existing GARIKAI REALTY conversation engine;
-6. records Meta outbound message IDs and delivery states.
-
-The Django WhatsApp client remains available to domain workflows such as provider notifications, but it is Meta-only. It must not use Twilio credentials or Twilio Content SIDs.
-
-### Required server-side environment
-
-Meta/Supabase:
-- `WHATSAPP_VERIFY_TOKEN`
-- `WHATSAPP_APP_SECRET`
-- `WHATSAPP_ACCESS_TOKEN`
-- `WHATSAPP_PHONE_NUMBER_ID`
-- `WHATSAPP_GRAPH_VERSION` (optional)
-- `GARIKAI REALTY_CONVERSATION_FUNCTION_URL` (optional)
-
-Django provider notifications:
-- `META_ACCESS_TOKEN` or `WHATSAPP_ACCESS_TOKEN`
-- `META_PHONE_NUMBER_ID` or `WHATSAPP_PHONE_NUMBER_ID`
-- `META_API_VERSION`
-- `META_TEMPLATE_LANGUAGE`
-- `META_TEMPLATE_PROVIDER_INFO_RESPONSE`
-
-Do not configure or commit Twilio credentials for GARIKAI REALTY WhatsApp.
-
-## Quick Start
-
-### Prerequisites
-- Python 3.8+
-- Node.js 16+
-- PostgreSQL for production deployments
-
-### Development Setup
-
-1. Clone the repository.
-2. Set up the backend with the project's environment configuration.
-3. Set up the frontend.
-4. For WhatsApp development, use Meta's test assets and a dedicated test number.
-
-## Project Structure
+## Project structure
 
 ```text
 Garikai Realty/
-├── backend/                 # Django backend API server
-│   ├── core/                # Conversation, search, booking and shared logic
-│   ├── matching/            # Property matching algorithms
-│   ├── providers/           # Provider management and booking workflow
-│   └── whatsapp/            # Meta WhatsApp client and compatibility webhook
-├── frontend/                # Next.js frontend application
-├── supabase/                # Supabase functions and infrastructure
-├── privacy/                 # Documentation and privacy policies
+├── frontend/   # Next.js website and privacy pages
+├── privacy/    # Privacy policy documents
+├── supabase/   # Database migrations and Edge Functions
+├── docs/       # Release and migration reference material
+├── .github/    # Repository automation
+├── Makefile    # Frontend development shortcuts
 └── README.md
 ```
 
-## Key Features
+## Frontend development
 
-### Core Functionality
-- **Free accommodation search**: No payment or token purchase is required
-- **Natural-language requirements**: Users can describe what they need conversationally
-- **Property matching**: Search and recommendation based on budget, location, room configuration and amenities
-- **Booking workflow**: Users can select a property and submit a booking request
-- **Provider workflow**: Accommodation providers can respond to booking requests
-- **Booking confirmation**: The workflow supports provider responses and final confirmation
-- **Analytics**: Search and booking insights
-
-### Security & Validation
-- Rate limiting and abuse protection
-- Zimbabwe phone-number validation where applicable
-- Input validation
-- WhatsApp webhook signature validation
-- Conversation tracking and security monitoring
-- Durable WhatsApp event/message tracing
-
-## Deployment
-
-The frontend is configured for Vercel/Next.js deployment. The Django backend can still run using the existing deployment configuration while the broader Vercel/Supabase migration is completed.
-
-The Meta WhatsApp callback must point to the deployed Supabase `whatsapp-webhook` Edge Function, not the legacy Django webhook.
-
-## Testing
+Requirements: Node.js 20 or a compatible supported version.
 
 ```bash
-cd backend
-python manage.py test
+cd frontend
+npm ci
+npm run dev
 ```
 
-For WhatsApp, test the real Meta webhook with a controlled phone number after deployment.
+Run frontend checks before submitting changes:
 
-## Roadmap
+```bash
+cd frontend
+npm run lint
+npm run build
+```
 
-1. Stabilize free accommodation search
-2. Stabilize property selection and booking
-3. Stabilize provider responses and confirmations
-4. Complete the Vercel/Supabase backend migration
-5. Complete WhatsApp observability and end-to-end diagnostics
-6. Design and implement payment architecture as a separate future phase
+## Supabase development and deployment
 
-## License
+Use the Supabase CLI and the project-specific instructions in `supabase/README.md`. Review migrations before applying them to a live project. Deploy Edge Functions and configure secrets through the intended Supabase environment; never commit credentials.
+
+## Operational notes
+
+- Keep the public Meta webhook on Supabase; do not point Meta back to a retired Django endpoint.
+- Keep WhatsApp credentials server-side.
+- Preserve the existing Supabase schema, migrations, and active workflow functions unless a separate change explicitly authorizes modifying them.
+- Payment processing remains a separate future phase.
 
 This project is proprietary software. All rights reserved.
-
-## Contact
-
-For questions or support, please contact the development team.

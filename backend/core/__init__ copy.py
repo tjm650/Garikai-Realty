@@ -1,1 +1,0 @@
-# Core app for Jeff Platform

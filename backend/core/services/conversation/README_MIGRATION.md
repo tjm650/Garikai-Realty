@@ -1,1 +1,0 @@
-Temporary migration note: property_search.py is being moved to Supabase-backed search/state. Remove this note after the migration is validated.
