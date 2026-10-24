@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
               className="lg:w-1/2 mb-10 w-[80%] lg:mb-0 text-center lg:text-left"
             >
               <h1 className="text-2xl lg:text-6xl md:text-4xl font-bold text-white mb-6">
-                Find Accommodation with Jeff
+                Find Accommodation with Garikai Realty
               </h1>
               <p className="text-lg md:text-xl text-white/90 max-w-md">
                 Fast, safe, reliable, 24/7, reccommended listings
@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
               >
                 <img
                   src="/jeff-header-msg-r.png"
-                  alt="Jeff Header Message R"
+                  alt="Garikai Realty Header Message R"
                   className="w-90 h-auto drop-shadow-lg"
                 />
               </motion.div>
@@ -95,7 +95,7 @@ const HomePage: React.FC = () => {
               >
                 <img
                   src={jeffHeaderMsgS}
-                  alt="Jeff Header Message S"
+                  alt="Garikai Realty Header Message S"
                   className="w-120 h-auto drop-shadow-lg"
                 />
               </motion.div>
@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
               >
                 <img
                   src={jeffConfirmMsg}
-                  alt="Jeff Header Message R"
+                  alt="Garikai Realty Header Message R"
                   className="w-150 h-auto drop-shadow-lg"
                 />
               </motion.div>
@@ -157,7 +157,7 @@ const HomePage: React.FC = () => {
               className="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left"
             >
               <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
-                Your accommodation search is safe with Jeff
+                Your accommodation search is safe with Garikai Realty
               </h2>
               <p className="text-lg md:text-xl text-gray-700 max-w-md">
                 Search through reccommended accommodation listings. Find perfect

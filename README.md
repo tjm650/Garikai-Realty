@@ -1,168 +1,78 @@
-# Jeff - Student Accommodation Platform
+# Garikai Realty
 
-Jeff is an AI-powered student accommodation platform that helps students at NUST (National University of Science and Technology) find suitable accommodation near campus through WhatsApp conversations.
-
-## Project Overview
-
-Jeff provides a conversational AI agent that operates via WhatsApp to help students:
-- Find accommodation based on their specific requirements
-- Process payments for property search tokens
-- Facilitate booking requests and provider responses
-- Provide personalized recommendations using NLP and AI
+Garikai Realty is an AI-powered student accommodation platform that helps students find suitable accommodation through WhatsApp conversations, with a separate backend area reserved for future national realty capabilities.
 
 ## Architecture
 
-The project follows a full-stack microservices architecture:
+- **Frontend:** Next.js, React and TypeScript in `frontend/`; deployed independently on Vercel.
+- **Student system:** Existing production Supabase functions, configuration and migrations live in `student-realty/`.
+- **Main realty system:** `backend/main-realty/` is the separate starting point for the future national realty backend. It is intentionally not connected to a Supabase project yet.
+- **WhatsApp transport:** Meta WhatsApp Cloud API, with the public webhook source at `student-realty/functions/whatsapp-webhook`.
+- **Privacy:** Public-facing privacy pages in `frontend/` and policy documents in `privacy/`.
 
-### Backend (`/backend`)
-- **Framework**: Django 5.1.1 with Django REST Framework
-- **Database**: SQLite3 (development), PostgreSQL (production-ready)
-- **Real-time Communication**: Channels and WebSockets
-- **Payment Integration**: Paynow gateway for mobile money payments
-- **AI Services**: Integration with OpenAI, Google Gemini, and Anthropic for NLP processing
-- **WhatsApp Integration**: Twilio for WhatsApp messaging
+The student system source is maintained in [`student-realty/`](https://github.com/tjm650/Jeff/tree/main/student-realty). The future national backend scaffold remains in `backend/main-realty/`. The repository separates these two systems in source control. The hosted student backend remains the existing Supabase project `fpktfufvnfauahriwjuf`; moving its source directory does not create a new Supabase project or deploy any code. The CLI wrapper stages only `student-realty/` as a temporary CLI-compatible `supabase/` directory. No permanent `supabase/` directory is required.
 
-### Frontend (`/frontend`)
-- **Framework**: Next.js 16.0.1 with TypeScript
-- **Styling**: Tailwind CSS
-- **Animation**: Motion library for smooth UI interactions
+The Django backend and its Render deployment have been retired. Do not reintroduce Django as a dependency of the active Meta WhatsApp integration.
 
-## Quick Start
+## Meta WhatsApp and Supabase
 
-### Prerequisites
-- Python 3.8+
-- Node.js 16+
-- PostgreSQL (for production)
+The Meta callback must continue pointing to the deployed Supabase `whatsapp-webhook` Edge Function. That function verifies Meta webhook signatures, records inbound events and delivery statuses, sends outbound messages through Meta's Graph API, and routes messages to the relevant Supabase Edge Functions.
 
-### Development Setup
+Configure credentials as server-side Supabase Edge Function secrets, never in frontend code or committed files. These typically include the WhatsApp verification token, Meta app secret, access token, phone-number ID, and the internal provider webhook secret. See `student-realty/README.md` for the function map and deployment procedure.
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Jeff
-   ```
+## Project structure
 
-2. **Set up the backend**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   cp .env.example .env
-   # Edit .env with your configuration
-   python manage.py migrate
-   python manage.py runserver
-   ```
-
-3. **Set up the frontend**
-   ```bash
-   cd ../frontend
-   npm install
-   npm run dev
-   ```
-
-4. **Access the application**
-   <!-- - Frontend: https://
-   - Backend API: https:// -->
-
-## Project Structure
-
-```
-Jeff/
-├── backend/                 # Django backend API server
-│   ├── README.md            # Backend-specific documentation
-│   ├── core/                # Main application logic
-│   ├── payment/             # Payment processing system
-│   ├── matching/            # Property matching algorithms
-│   ├── providers/           # Provider management
-│   └── whatsapp/            # WhatsApp integration
-├── frontend/                # Next.js frontend application
-│   ├── README.md            # Frontend-specific documentation
-│   ├── app/                 # App router pages
-│   ├── components/         # Reusable UI components
-│   └── public/              # Static assets
-├── privacy/                 # Documentation and privacy policies
-├── Makefile                 # Development commands
-├── render.yaml              # Production deployment configuration
-└── README.md                # This file
+```text
+Garikai Realty/
+├── frontend/                 # Next.js website and privacy pages
+├── student-realty/           # Existing student accommodation Supabase project source
+│   ├── functions/
+│   ├── migrations/
+│   └── config.toml
+├── backend/
+│   └── main-realty/          # Scaffold for the future national realty backend
+├── scripts/                  # Supabase CLI compatibility wrapper
+├── privacy/                  # Privacy policy documents
+├── docs/                     # Release and migration reference material
+├── .github/                  # Repository automation
+├── Makefile                  # Frontend development shortcuts
+└── README.md
 ```
 
-## Key Features
+## Frontend development
 
-### Core Functionality
-- **8-Step Conversation Workflow**: Guided accommodation search process
-- **Token-based Access**: Students purchase tokens for property search capabilities
-- **NLP Processing**: Advanced natural language processing for requirement extraction
-- **Property Matching**: AI-enhanced property recommendation system
-- **Payment Processing**: Secure mobile money payments via Paynow
-- **Provider Management**: Separate workflow for accommodation providers
-- **Analytics Dashboard**: Comprehensive metrics and insights
-
-### Security & Validation
-- **Rate Limiting**: Prevents spam and abuse
-- **Region Restriction**: Only available for Zimbabwe phone numbers
-- **Input Validation**: Comprehensive validation for all user inputs
-- **Conversation Tracking**: Security monitoring for suspicious activities
-
-## Development Commands
-
-The project includes a Makefile with common development commands:
+Requirements: Node.js 20 or a compatible supported version.
 
 ```bash
-# Start frontend development server
-make frontend
-
-# Start backend with ngrok for webhook testing
-make runserver
-
-# Create superuser
-make createsuperuser
-
-# Generate API key for frontend
-make GAK
-```
-
-## Documentation
-
-- **[Backend Documentation](./backend/README.md)** - Detailed backend setup, API endpoints, and development guide
-- **[Frontend Documentation](./frontend/README.md)** - Frontend development guide and project structure
-
-## Deployment
-
-### Backend (Render.com)
-The backend is configured for deployment on Render.com. The `render.yaml` file contains the deployment configuration.
-
-### Frontend (Vercel)
-The frontend is configured for deployment on Vercel with Next.js.
-
-## Environment Configuration
-
-See individual README files for detailed environment variable setup:
-- [Backend Environment Variables](./backend/README.md#environment-variables)
-- [Frontend Environment Variables](./frontend/README.md#environment-variables)
-
-## Testing
-
-```bash
-# Backend tests
-cd backend
-python manage.py test
-
-# Frontend tests
 cd frontend
-npm test
+npm ci
+npm run dev
 ```
 
-## Contributing
+Run frontend checks before submitting changes:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+```bash
+cd frontend
+npm run lint
+npm run build
+```
 
-## License
+## Student Supabase CLI
+
+Authenticate once on your development machine with `supabase login`, then use the wrapper for student backend CLI commands. For example:
+
+```bash
+./scripts/supabase.sh functions deploy whatsapp-webhook --project-ref fpktfufvnfauahriwjuf
+```
+
+Deploy one reviewed function at a time. The wrapper blocks database migration/push/reset/pull/repair/diff commands because the repository's historical migration source is incomplete. Do not bypass this safeguard until migration history has been recovered and reviewed. Never commit credentials.
+
+## Operational notes
+
+- Keep the public Meta webhook on Supabase; do not point Meta back to a retired Django endpoint.
+- Keep WhatsApp credentials server-side.
+- Preserve the existing Supabase schema, migrations, and active workflow functions unless a separate change explicitly authorizes modifying them.
+- The main-realty scaffold must not be connected to or deployed against the student production project.
+- Payment processing remains a separate future phase.
 
 This project is proprietary software. All rights reserved.
-
-## Contact
-
-For questions or support, please contact the development team.

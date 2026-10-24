@@ -50,10 +50,10 @@ const NavigationBar: React.FC = () => {
               <Link href="/" className="flex items-center space-x-2">
                 <img
                   src={logo}
-                  alt="Jeff Logo"
+                  alt="Garikai Realty Logo"
                   className="w-10 h-10 rounded-full"
                 />
-                <span className="font-bold text-xl text-[#1F4788]">Jeff</span>
+                <span className="font-bold text-xl text-[#1F4788]">Garikai Realty</span>
               </Link>
             </div>
 
@@ -67,14 +67,14 @@ const NavigationBar: React.FC = () => {
               >
                 Home
               </Link>
-              <Link
+              {/* <Link
                 href="/cart"
                 className={`${
                   pathname === "/cart" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200`}
               >
                 Cart
-              </Link>
+              </Link> */}
               <Link
                 href="/privacy"
                 className={`${
@@ -190,16 +190,16 @@ const NavigationBar: React.FC = () => {
                 </svg>
               </button>
             )}
-            {/* Jeff Logp */}
+            {/* Brand logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 <img
                   src={logo}
-                  alt="Jeff Logo"
+                  alt="Garikai Realty Logo"
                   className="w-8 h-8 rounded-full"
                 />
                 <span className="font-semibold text-lg text-[#1F4788]">
-                  Jeff
+                  Garikai Realty
                 </span>
               </Link>
             </div>
@@ -242,7 +242,7 @@ const NavigationBar: React.FC = () => {
             >
               Home
             </Link>
-            <Link
+            {/* <Link
               href="/cart"
               className={`block ${
                 pathname === "/cart" ? "text-[#1F4788]" : "text-gray-900"
@@ -250,7 +250,7 @@ const NavigationBar: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Cart
-            </Link>
+            </Link> */}
             <Link
               href="/privacy"
               className={`block ${
