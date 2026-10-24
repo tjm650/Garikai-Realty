@@ -4,6 +4,9 @@ project_id = "fpktfufvnfauahriwjuf"
 verify_jwt = false
 import_map = "./functions/whatsapp-webhook/deno.json"
 
+[functions.student-conversation]
+verify_jwt = false
+
 [functions.student-accommodation-search]
 verify_jwt = false
 import_map = "./functions/student-accommodation-search/deno.json"
