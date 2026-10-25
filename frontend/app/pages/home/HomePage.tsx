@@ -66,12 +66,12 @@ const HomePage: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Link
+                  {/* <Link
                     href="/cart"
                     className="inline-flex h-13 items-center border-black border justify-center px-8 py-2 bg-white text-black font-medium rounded-4xl transition-colors duration-200 text-md flex-1 sm:flex-none"
                   >
                     Visit Cart <FontAwesomeIcon icon={faAngleRight} />
-                  </Link>
+                  </Link> */}
                 </motion.div>
               </motion.div>
             </motion.div>
