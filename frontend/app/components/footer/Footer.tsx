@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
-          {/* <div className="hidden md:flex md:flex-col space-y-4 md:space-y-5 *:flex-row *:items-center space-x-10">
+          <div className="hidden md:flex md:flex-col space-y-4 md:space-y-5 *:flex-row *:items-center space-x-10">
             <div className="flex items-center space-x-2">
               <img
                 src={logo}
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 className="w-8 h-8 rounded-full"
               />
               <span className="font-semibold text-lg">Garikai Realty</span>
-            </div> */}
+            </div>
             {/* <a
               href={process.env.JEFF_WA_NUMBER}
               target="_blank"
