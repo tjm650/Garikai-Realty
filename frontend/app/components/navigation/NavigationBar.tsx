@@ -41,7 +41,7 @@ const NavigationBar: React.FC = () => {
           : "relative z-50"
       } backdrop-blur-xs bg-blur-lg text-gray-900 transition-all duration-700 bg-[#f7f2e8]/85 md:py-1`}
     >
-      {/* Desktop 1F4788 Menu */}
+      {/* Desktop 1F4788 C2410C Menu */}
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
         <div className="flex justify-between items-center h-16 ">
           <div className="flex gap-20">
@@ -62,8 +62,8 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/"
                 className={`${
-                  pathname === "/" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal `}
+                  pathname === "/" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal `}
               >
                 Home
               </Link>
@@ -79,7 +79,7 @@ const NavigationBar: React.FC = () => {
                 href="/privacy"
                 className={`${
                   pathname === "/privacy" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal`}
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Privacy
               </Link>
@@ -89,7 +89,7 @@ const NavigationBar: React.FC = () => {
                 rel="noopener noreferrer"
                 className={`${
                   pathname === "/help" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal`}
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Help Center
               </a>
