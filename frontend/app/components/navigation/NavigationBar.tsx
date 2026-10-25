@@ -73,7 +73,7 @@ const NavigationBar: React.FC = () => {
                   pathname === "/cart" ? "text-[#C2410C]" : ""
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
-                Why Us
+                Why-Us
               </Link>
               <Link
                 href="/privacy"
