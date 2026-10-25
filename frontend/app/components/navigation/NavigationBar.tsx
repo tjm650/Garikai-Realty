@@ -63,7 +63,7 @@ const NavigationBar: React.FC = () => {
                 href="/"
                 className={`${
                   pathname === "/" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 `}
+                } hover:text-[#1F4788] transition-colors duration-200 font-bold `}
               >
                 Home
               </Link>
@@ -71,7 +71,7 @@ const NavigationBar: React.FC = () => {
                 href="/cart"
                 className={`${
                   pathname === "/cart" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200`}
+                } hover:text-[#1F4788] transition-colors duration-200 font-bold`}
               >
                 Cart
               </Link> */}
@@ -79,7 +79,7 @@ const NavigationBar: React.FC = () => {
                 href="/privacy"
                 className={`${
                   pathname === "/privacy" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200`}
+                } hover:text-[#1F4788] transition-colors duration-200 font-bold`}
               >
                 Privacy
               </Link>
@@ -89,7 +89,7 @@ const NavigationBar: React.FC = () => {
                 rel="noopener noreferrer"
                 className={`${
                   pathname === "/help" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200`}
+                } hover:text-[#1F4788] transition-colors duration-200 font-bold`}
               >
                 Help Center
               </a>
@@ -237,7 +237,7 @@ const NavigationBar: React.FC = () => {
               href="/"
               className={`block ${
                 pathname === "/" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-medium`}
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-bold`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
@@ -246,7 +246,7 @@ const NavigationBar: React.FC = () => {
               href="/cart"
               className={`block ${
                 pathname === "/cart" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-medium`}
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-bold`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Cart
@@ -255,7 +255,7 @@ const NavigationBar: React.FC = () => {
               href="/privacy"
               className={`block ${
                 pathname === "/privacy" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-medium`}
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-bold`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Privacy
@@ -266,7 +266,7 @@ const NavigationBar: React.FC = () => {
               rel="noopener noreferrer"
               className={`${
                   pathname === "/help" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 text-lg font-medium`}
+                } hover:text-[#1F4788] transition-colors duration-200 text-lg font-bold`}
             >
               Help Center
             </a>
