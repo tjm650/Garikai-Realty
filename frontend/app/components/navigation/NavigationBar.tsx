@@ -53,7 +53,7 @@ const NavigationBar: React.FC = () => {
                   alt="Garikai Realty Logo"
                   className="w-10 h-10 rounded-full"
                 />
-                <span className="font-bold text-xl text-[#1F4788]">Garikai Realty</span>
+                <span className="font-bold text-xl text-[#C2410C]">Garikai Realty</span>
               </Link>
             </div>
 
@@ -62,7 +62,7 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/"
                 className={`${
-                  pathname === "/" ? "text-[#C2410C]" : ""
+                  pathname === "/" ? "text-[#1F4788]" : ""
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal `}
               >
                 Home
@@ -78,7 +78,7 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/privacy"
                 className={`${
-                  pathname === "/privacy" ? "text-[#C2410C]" : ""
+                  pathname === "/privacy" ? "text-[#1F4788]" : ""
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Privacy
@@ -88,7 +88,7 @@ const NavigationBar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
-                  pathname === "/help" ? "text-[#C2410C]" : ""
+                  pathname === "/help" ? "text-[#1F4788]" : ""
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Help Center
