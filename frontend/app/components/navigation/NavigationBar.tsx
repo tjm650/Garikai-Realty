@@ -62,8 +62,8 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/"
                 className={`${
-                  pathname === "/" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 font-normal `}
+                  pathname === "/" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal `}
               >
                 Home
               </Link>
@@ -78,8 +78,8 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/privacy"
                 className={`${
-                  pathname === "/privacy" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
+                  pathname === "/privacy" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Privacy
               </Link>
@@ -88,8 +88,8 @@ const NavigationBar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
-                  pathname === "/help" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
+                  pathname === "/help" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Help Center
               </a>
@@ -236,8 +236,8 @@ const NavigationBar: React.FC = () => {
             <Link
               href="/"
               className={`block ${
-                pathname === "/" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+                pathname === "/" ? "text-[#C2410C]" : "text-gray-900"
+              } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
@@ -254,8 +254,8 @@ const NavigationBar: React.FC = () => {
             <Link
               href="/privacy"
               className={`block ${
-                pathname === "/privacy" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+                pathname === "/privacy" ? "text-[#C2410C]" : "text-gray-900"
+              } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Privacy
@@ -265,8 +265,8 @@ const NavigationBar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`${
-                  pathname === "/help" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+                  pathname === "/help" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
             >
               Help Center
             </a>
