@@ -118,7 +118,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
                 Describe specifically what you are looking for
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-md">
+              <p className="text-lg md:text-xl text-[#475569] max-w-md">
                 Explore preferable accommodation listings with best ratings from
                 the previous students, with respect to your need. Get
                 accommodation within short period of time.
@@ -159,7 +159,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
                 Your accommodation search is safe with Garikai Realty
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-md">
+              <p className="text-lg md:text-xl text-[#475569] max-w-md">
                 Search through reccommended accommodation listings. Find perfect
                 place. Your accommodation is confirmed by the provider. All is
                 secured from start to finishing.{"  "}
