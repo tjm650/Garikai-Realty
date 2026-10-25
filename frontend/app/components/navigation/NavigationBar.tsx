@@ -63,7 +63,7 @@ const NavigationBar: React.FC = () => {
                 href="/"
                 className={`${
                   pathname === "/" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] transition-colors duration-200 font-normal `}
+                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal `}
               >
                 Home
               </Link>
@@ -79,7 +79,7 @@ const NavigationBar: React.FC = () => {
                 href="/privacy"
                 className={`${
                   pathname === "/privacy" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
+                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Privacy
               </Link>
@@ -89,7 +89,7 @@ const NavigationBar: React.FC = () => {
                 rel="noopener noreferrer"
                 className={`${
                   pathname === "/help" ? "text-[#C2410C]" : "#C2410C"
-                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
+                } hover:text-[#C2410C] text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Help Center
               </a>
