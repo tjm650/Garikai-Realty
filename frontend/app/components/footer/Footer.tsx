@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                     href={process.env.JEFF_WA_NUMBER}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex lg:inline-flex md:hidden items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl hover:bg-black transition-colors duration-200 text-sm flex-1 sm:flex-none"
+                    className="inline-flex lg:inline-flex md:hidden items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl hover:bg-[#1A1A1A] transition-colors duration-300 ease-in-out text-sm flex-1 sm:flex-none"
                   >
                     <svg
                       className="w-4 h-4 mr-2"
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
                     href={process.env.HELP_CENTER_WA_NUMBER}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl hover:bg-black transition-colors duration-200 text-sm flex-1 sm:flex-none"
+                    className="inline-flex items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl hover:bg-[#1A1A1A] transition-colors duration-300 ease-in-out text-sm flex-1 sm:flex-none"
                   >
                     <svg
                       className="w-4 h-4 mr-2"
