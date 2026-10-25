@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                     href={process.env.JEFF_WA_NUMBER}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative isolate overflow-hidden inline-flex lg:inline-flex md:hidden items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl transition-colors duration-300 ease-in-out before:content-[''] before:absolute before:left-1/2 before:top-1/2 before:h-0 before:w-0 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-[#1A1A1A] before:transition-all before:duration-300 before:ease-in-out hover:before:h-[220%] hover:before:w-[220%] text-sm flex-1 sm:flex-none"
+                    className="inline-flex lg:inline-flex md:hidden items-center cursor-pointer justify-center px-4 py-2 bg-transparent border border-white/60 text-white font-medium rounded-4xl transition-colors duration-200 hover:bg-white/10 hover:border-white/80 text-sm flex-1 sm:flex-none"
                   >
                     <svg
                       className="relative z-10 w-4 h-4 mr-2"
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
                     href={process.env.HELP_CENTER_WA_NUMBER}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative isolate overflow-hidden inline-flex items-center cursor-pointer justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl transition-colors duration-300 ease-in-out before:content-[''] before:absolute before:left-1/2 before:top-1/2 before:h-0 before:w-0 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:bg-[#1A1A1A] before:transition-all before:duration-300 before:ease-in-out hover:before:h-[220%] hover:before:w-[220%] text-sm flex-1 sm:flex-none"
+                    className="inline-flex items-center cursor-pointer justify-center px-4 py-2 bg-transparent border border-white/60 text-white font-medium rounded-4xl transition-colors duration-200 hover:bg-white/10 hover:border-white/80 text-sm flex-1 sm:flex-none"
                   >
                   <svg
                       className="w-5 h-5"
