@@ -10,10 +10,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#111827] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 items-center gap-x-3 gap-y-4 md:grid-cols-[auto_minmax(220px,1fr)_minmax(24px,1fr)_auto_auto_auto] md:gap-x-6 md:gap-y-0">
           {/* Terms & Privacy Policy: plain text link, not a button */}
-          <div className="col-span-2 flex justify-center py-2 md:col-span-1 md:col-start-4 md:row-start-1 md:py-0">
+          <div className="col-span-2 flex justify-left py-2 md:col-span-1 md:col-start-4 md:row-start-1 md:py-0">
             <Link
               href="/privacy"
               className="whitespace-nowrap text-xs text-gray-300 transition-colors duration-200 hover:text-[#7494c8]"
@@ -49,14 +49,14 @@ const Footer: React.FC = () => {
           </a>
 
           {/* Brand / logo */}
-          <div className="flex items-center justify-center md:col-start-1 md:row-start-1 md:justify-start">
-            <img src={logo} alt="Garikai Realty Logo" className="h-12 w-12 rounded-full object-contain" />
+          {/* <div className="flex items-center justify-center md:col-start-1 md:row-start-1 md:justify-start">
+            <img src={logo} alt="Garikai Realty Logo" className="h-5 w-5 rounded-full object-contain" />
             <span className="sr-only">Garikai Realty</span>
-          </div>
+          </div> */}
 
           {/* Copyright */}
-          <p className="flex items-center justify-center text-center text-xs text-gray-300 md:col-start-2 md:row-start-1 md:justify-start">
-            © 2026 Garikai Realty. All rights reserved.
+          <p className="flex items-center justify-center text-center text-xs text-gray-300 md:col-start-1 md:row-start-1 md:justify-center">
+            © 2026 Garikai Realty
           </p>
         </div>
       </div>
