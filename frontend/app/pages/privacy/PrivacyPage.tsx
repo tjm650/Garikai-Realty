@@ -49,7 +49,7 @@ const PrivacyPage: React.FC = () => {
               </div>
             ) : (
               <div
-                className="text-gray-700 leading-relaxed"
+                className="text-[#475569] leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(aboutInfo?.html || 'Terms & Privacy Policy not available now.') }}
               />
             )}
