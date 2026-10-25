@@ -89,7 +89,7 @@ const NavigationBar: React.FC = () => {
                   pathname === "/privacy" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
-                Privacy
+                Blog
               </Link>
               <a
                 href={process.env.HELP_CENTER_WA_NUMBER}
