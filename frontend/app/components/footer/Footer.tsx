@@ -42,7 +42,6 @@ const Footer: React.FC = () => {
                 Terms & Privacy Policy
               </Link>
             </div>
-          </div>
 
           {/* What we do*/}
           <div className="space-y-4">
