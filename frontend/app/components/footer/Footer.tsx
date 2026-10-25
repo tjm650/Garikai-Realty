@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
           </a>
 
           {/* Copyright centered on the bottom row */}
-          <p className="col-span-2 flex items-center justify-center pt-2 text-center text-xs text-gray-300 md:col-span-6 md:col-start-1 md:row-start-2 md:pt-3">
+          <p className="col-span-2 flex items-center justify-center pt-2 text-center text-xs text-gray-300 md:col-span-1 md:col-start-1 md:row-start-2 md:justify-start md:text-left md:pt-3">
             © 2026 Garikai Realty
           </p>
         </div>
