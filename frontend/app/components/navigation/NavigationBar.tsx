@@ -70,8 +70,8 @@ const NavigationBar: React.FC = () => {
                <Link
                 href=""
                 className={`${
-                  pathname === "/cart" ? "text-[#C2410C]" : ""
-                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
+                  pathname === "/cart" ? "text-[#1F4788]" : ""
+                } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Why-Us
               </Link>
@@ -96,7 +96,7 @@ const NavigationBar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
-                  pathname === "/help" ? "text-[#C2410C]" : "#C2410C"
+                  pathname === "/help" ? "text-[#1F4788]" : "#1F4788"
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Help Center
