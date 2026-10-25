@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     ],
     other: [
       { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
-      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+      { rel: "android-chrome-512x512.png", url: "/android-chrome-512x512.png" },
     ],
   },
 };
@@ -49,10 +49,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased leading-3  overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased leading-3 overflow-x-hidden`}
       >
         <NavigationBar />
-        <main className="min-h-screen bg-[#f4fafa]">
+        <main className="min-h-screen bg-[#f7f2e8]">
           {children}
         </main>
         <Footer />
