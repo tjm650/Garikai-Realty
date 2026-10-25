@@ -237,44 +237,54 @@ const NavigationBar: React.FC = () => {
 
           {/* Menu items */}
           <div
-            className={`flex-1 px-4 py-4 space-y-10 mb-15 rounded-l-2xl w-full  bg-[#f7f2e8]/85 backdrop-blur-xs transform transition-transform duration-300 ease-in-out ${
+            className={`flex-1 px-4 py-4 space-y-10 mb-15 rounded-l-2xl w-full bg-[#f7f2e8]/85 backdrop-blur-xs transform transition-transform duration-300 ease-in-out ${
               isMobileMenuOpen ? "translate-x-[50%]" : "translate-x-[500%]"
-            } $`}
+            }`}
           >
             <Link
               href="/"
               className={`block ${
-                pathname === "/" ? "text-[#C2410C]" : "text-gray-900"
-              } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
+                pathname === "/" ? "text-[#1F4788]" : "text-gray-900"
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
-            {/* <Link
-              href="/cart"
+            <Link
+              href=""
               className={`block ${
                 pathname === "/cart" ? "text-[#C2410C]" : "text-gray-900"
               } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Cart
-            </Link> */}
+              Why-Us
+            </Link>
             <Link
               href="/privacy"
               className={`block ${
-                pathname === "/privacy" ? "text-[#C2410C]" : "text-gray-900"
-              } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
+                pathname === "/privacy" ? "text-[#1F4788]" : "text-gray-900"
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Privacy
             </Link>
+            <Link
+              href="/privacy"
+              className={`block ${
+                pathname === "/privacy" ? "text-[#1F4788]" : "text-gray-900"
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
             <a
-              href="https://wa.me/263771234567"
+              href={process.env.HELP_CENTER_WA_NUMBER}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${
-                  pathname === "/help" ? "text-[#C2410C]" : ""
-                } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
+              className={`block ${
+                pathname === "/help" ? "text-[#C2410C]" : "text-gray-900"
+              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Help Center
             </a>
