@@ -41,7 +41,7 @@ const NavigationBar: React.FC = () => {
           : "relative z-50"
       } backdrop-blur-xs bg-blur-lg text-gray-900 transition-all duration-700 bg-[#f7f2e8]/85 md:py-1`}
     >
-      {/* Desktop Menu */}
+      {/* Desktop 1F4788 Menu */}
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
         <div className="flex justify-between items-center h-16 ">
           <div className="flex gap-20">
@@ -53,7 +53,7 @@ const NavigationBar: React.FC = () => {
                   alt="Garikai Realty Logo"
                   className="w-10 h-10 rounded-full"
                 />
-                <span className="font-bold text-xl text-[#C2410C]">Garikai Realty</span>
+                <span className="font-bold text-xl text-[#1F4788]">Garikai Realty</span>
               </Link>
             </div>
 
@@ -62,7 +62,7 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/"
                 className={`${
-                  pathname === "/" ? "text-[#1F4788]" : ""
+                  pathname === "/" ? "text-[#C2410C]" : "#C2410C"
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal `}
               >
                 Home
@@ -78,7 +78,7 @@ const NavigationBar: React.FC = () => {
               <Link
                 href="/privacy"
                 className={`${
-                  pathname === "/privacy" ? "text-[#1F4788]" : ""
+                  pathname === "/privacy" ? "text-[#C2410C]" : "#C2410C"
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Privacy
@@ -88,7 +88,7 @@ const NavigationBar: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
-                  pathname === "/help" ? "text-[#1F4788]" : ""
+                  pathname === "/help" ? "text-[#C2410C]" : "#C2410C"
                 } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Help Center
