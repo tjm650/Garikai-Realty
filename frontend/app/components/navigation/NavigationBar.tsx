@@ -70,8 +70,8 @@ const NavigationBar: React.FC = () => {
               {/* <Link
                 href="/cart"
                 className={`${
-                  pathname === "/cart" ? "text-[#1F4788]" : ""
-                } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
+                  pathname === "/cart" ? "text-[#C2410C]" : ""
+                } hover:text-[#C2410C] transition-colors duration-200 font-normal`}
               >
                 Cart
               </Link> */}
@@ -122,7 +122,7 @@ const NavigationBar: React.FC = () => {
           {/* <div className="md:hidden absolute top-5 right-5">
             <button
               onClick={toggleMobileMenu}
-              className="text-gray-900  cursor-pointer hover:text-[#1F4788] focus:outline-none focus:text-[#1F4788]"
+              className="text-gray-900  cursor-pointer hover:text-[#C2410C] focus:outline-none focus:text-[#C2410C]"
             >
               <svg
                 className="h-6 w-6"
@@ -154,7 +154,7 @@ const NavigationBar: React.FC = () => {
             {isMobileMenuOpen ? (
               <button
                 onClick={toggleMobileMenu}
-                className="text-gray-900 hover:text-[#1F4788] cursor-pointer focus:outline-none"
+                className="text-gray-900 hover:text-[#C2410C] cursor-pointer focus:outline-none"
               >
                 <svg
                   className="h-6 w-6"
@@ -173,7 +173,7 @@ const NavigationBar: React.FC = () => {
             ) : (
               <button
                 onClick={toggleMobileMenu}
-                className="text-gray-900  cursor-pointer hover:text-[#1F4788] focus:outline-none focus:text-[#1F4788]"
+                className="text-gray-900  cursor-pointer hover:text-[#C2410C] focus:outline-none focus:text-[#C2410C]"
               >
                 <svg
                   className="h-6 w-6"
@@ -245,8 +245,8 @@ const NavigationBar: React.FC = () => {
             {/* <Link
               href="/cart"
               className={`block ${
-                pathname === "/cart" ? "text-[#1F4788]" : "text-gray-900"
-              } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
+                pathname === "/cart" ? "text-[#C2410C]" : "text-gray-900"
+              } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Cart
