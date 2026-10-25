@@ -39,7 +39,7 @@ const NavigationBar: React.FC = () => {
         isScrolled
           ? "fixed top-0 left-0 right-0 z-50 bg-opacity-10  bg-auto border-b-black"
           : "relative z-50"
-      } backdrop-blur-xs bg-blur-lg text-gray-900 transition-all duration-700 bg-[#ffffff]/85 md:py-1`}
+      } backdrop-blur-xs bg-blur-lg text-gray-900 transition-all duration-700 bg-[#f7f2e8]/85 md:py-1`}
     >
       {/* Desktop Menu */}
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 hidden md:block">
@@ -229,7 +229,7 @@ const NavigationBar: React.FC = () => {
 
           {/* Menu items */}
           <div
-            className={`flex-1 px-4 py-4 space-y-10 mb-15 rounded-l-2xl w-full  bg-[#ffffff]  transform transition-transform duration-300 ease-in-out ${
+            className={`flex-1 px-4 py-4 space-y-10 mb-15 rounded-l-2xl w-full  bg-[#f7f2e8]/85 backdrop-blur-xs transform transition-transform duration-300 ease-in-out ${
               isMobileMenuOpen ? "translate-x-[50%]" : "translate-x-[500%]"
             } $`}
           >
