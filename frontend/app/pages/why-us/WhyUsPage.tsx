@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { motion } from "motion/react";
 
 const benefits = [
@@ -66,19 +65,19 @@ const WhyUsPage: React.FC = () => {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={process.env.JEFF_WA_NUMBER}
+                href={process.env.JEFF_WA_NUMBER || "/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1F4788] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#173866]"
               >
                 Find accommodation
               </a>
-              <Link
-                href={process.env.HELP_CENTER_WA_NUMBER}
+              <a
+                href={process.env.HELP_CENTER_WA_NUMBER || "/"}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#1F4788]/40 bg-white/70 px-6 py-3 font-semibold text-[#1F4788] transition-colors hover:bg-white"
               >
                 I have a property
-              </Link>
+              </a>
             </div>
             <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500">
               Take your time, ask questions and confirm the details directly
@@ -226,7 +225,7 @@ const WhyUsPage: React.FC = () => {
               </p>
             </div>
             <a
-              href={process.env.JEFF_WA_NUMBER}
+              href={process.env.JEFF_WA_NUMBER || "/"}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-[#1F4788] transition-colors hover:bg-[#f7f2e8]"
