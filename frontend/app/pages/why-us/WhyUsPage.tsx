@@ -54,10 +54,10 @@ const WhyUsPage: React.FC = () => {
             <p className="mb-4 inline-flex rounded-full border border-[#1F4788]/20 bg-white/70 px-4 py-2 text-sm font-semibold text-[#1F4788]">
               A more human way to find a place to stay
             </p>
-            <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[#1F4788] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-2xl text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold tracking-tight text-[#1F4788]">
               A place to live. A little more peace of mind.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-gray-700">
+            <p className="mt-6 max-w-prose text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
               Moving for school, looking for a room, or welcoming new tenants
               into your property is a big deal. Garikai Realty brings students
               and property providers closer with clearer information and a
@@ -79,7 +79,7 @@ const WhyUsPage: React.FC = () => {
                 I have a property
               </a>
             </div>
-            <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500">
+            <p className="mt-4 max-w-prose text-sm sm:text-base leading-7 text-gray-500">
               Take your time, ask questions and confirm the details directly
               with the provider. Never pay or commit before you are comfortable
               with the arrangements.
@@ -125,10 +125,10 @@ const WhyUsPage: React.FC = () => {
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C2410C]">
               Why Garikai Realty
             </p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#1F4788] sm:text-4xl">
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-[#1F4788]">
               Housing is personal. The search should be, too.
             </h2>
-            <p className="mt-5 text-base leading-8 text-gray-600">
+            <p className="mt-5 max-w-prose text-base sm:text-lg leading-relaxed text-gray-600">
               A good accommodation decision is about more than four walls. It
               is about feeling comfortable, getting to campus, managing rent
               and knowing what to expect. We focus on the practical details
@@ -158,10 +158,10 @@ const WhyUsPage: React.FC = () => {
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1F4788] text-sm font-bold text-white">
                   {benefit.number}
                 </span>
-                <h3 className="mt-5 text-xl font-bold text-[#1F4788]">
+                <h3 className="mt-5 text-lg sm:text-xl font-semibold leading-snug text-[#1F4788]">
                   {benefit.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-gray-600">
+                <p className="mt-3 text-sm sm:text-base leading-7 text-gray-600">
                   {benefit.text}
                 </p>
               </motion.article>
@@ -185,7 +185,7 @@ const WhyUsPage: React.FC = () => {
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#C2410C]">
                 How it works
               </p>
-              <h2 className="mt-3 text-3xl font-bold leading-tight text-[#1F4788] sm:text-4xl">
+              <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-[#1F4788]">
                 A clearer path from searching to settling in.
               </h2>
               <div className="mt-8 space-y-6">
@@ -196,7 +196,7 @@ const WhyUsPage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-800">{step.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-gray-600">
+                      <p className="mt-2 text-sm sm:text-base leading-7 text-gray-600">
                         {step.text}
                       </p>
                     </div>
@@ -215,11 +215,11 @@ const WhyUsPage: React.FC = () => {
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/70">
                 Let’s take the next step
               </p>
-              <h2 className="mt-3 max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+              <h2 className="mt-3 max-w-2xl text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold">
                 Whether you’re finding a home or offering one, let’s make the
                 process feel easier.
               </h2>
-              <p className="mt-4 max-w-2xl leading-7 text-white/85">
+              <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-white/85">
                 Start a conversation, share what you need, and get clarity on
                 the details that matter to you.
               </p>
