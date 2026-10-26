@@ -110,14 +110,14 @@ const BlogPage: React.FC = () => (
             Useful advice for real-life decisions
           </h2>
           <p className="text-lg md:text-xl text-gray-700 ">
-            Whether you are searching for your first student room or looking after a property, start with the guidance that feels most relevant to you.
+            Whether you are searching for first student room or looking after a property, start with the guidance that feels most relevant to you.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
           {articles.map((article, index) => (
             <motion.article
-              key={article.id}
+              key={article.id}  
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
