@@ -66,7 +66,7 @@ const WhyUsPage: React.FC = () => {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="https://wa.me/263771234567"
+                href={process.env.JEFF_WA_NUMBER}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1F4788] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#173866]"
@@ -74,7 +74,7 @@ const WhyUsPage: React.FC = () => {
                 Find accommodation
               </a>
               <Link
-                href="/#"
+                href={process.env.HELP_CENTER_WA_NUMBER}
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#1F4788]/40 bg-white/70 px-6 py-3 font-semibold text-[#1F4788] transition-colors hover:bg-white"
               >
                 I have a property
@@ -226,7 +226,7 @@ const WhyUsPage: React.FC = () => {
               </p>
             </div>
             <a
-              href="https://wa.me/263771234567"
+              href={process.env.JEFF_WA_NUMBER}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-[#1F4788] transition-colors hover:bg-[#f7f2e8]"
