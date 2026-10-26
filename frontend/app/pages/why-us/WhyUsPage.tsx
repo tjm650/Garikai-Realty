@@ -52,10 +52,10 @@ const WhyUsPage: React.FC = () => {
             transition={{ duration: 0.55 }}
           >
         
-            <h1 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-5 sm:mb-6">
               A place to live.
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-md">
+            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-prose">
               Moving for college, looking for a room, or getting new tenants
               into your property is a small but important step. Garikai Realty brings students
               and property providers closer in a simpler way.
@@ -116,10 +116,10 @@ const WhyUsPage: React.FC = () => {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-10">
           <div>
           
-            <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-5 sm:mb-6">
               Housing is personal. The search should be, too.
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-md">
+            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-prose">
               A good accommodation decision is about more than four walls. It
               is about feeling comfortable, getting to campus, managing rent
               and knowing what to expect. We cover the details that matter to students and property providers, so you can make a decision with confidence.
@@ -147,10 +147,10 @@ const WhyUsPage: React.FC = () => {
                 {/* <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm font-bold border-[#1F4788]/40 text-[#C2410C]">
                   {benefit.number}
                 </span> */}
-                <h3 className="mt-5 text-xl font-semibold text-gray-600">
+                <h3 className="mt-5 text-lg sm:text-xl font-semibold leading-snug text-gray-600">
                   {benefit.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-gray-600">
+                <p className="mt-3 text-sm sm:text-base leading-7 text-gray-600">
                   {benefit.text}
                 </p>
               </motion.article>
@@ -172,7 +172,7 @@ const WhyUsPage: React.FC = () => {
             </div>
             <div className="order-1 lg:order-2">
              
-              <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-5 sm:mb-6">
                 A clearer path from searching to settling in.
               </h2>
               <div className="mt-8 space-y-6">
@@ -183,7 +183,7 @@ const WhyUsPage: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-800">{step.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-gray-600">
+                      <p className="mt-2 text-sm sm:text-base leading-7 text-gray-600">
                         {step.text}
                       </p>
                     </div>
@@ -199,10 +199,10 @@ const WhyUsPage: React.FC = () => {
         <div className="mx-auto max-w-7xl overflow-hidden">
           <div className="grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:p-14">
             <div>
-              <p className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-3">
+              <p className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-3">
                 Let’s take the next step
               </p>
-              <p className="text-lg md:text-xl text-gray-700 max-w-md">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-prose">
                 Start a conversation, share what you need, and get clarity on
                 the details that matter to you.
               </p>
