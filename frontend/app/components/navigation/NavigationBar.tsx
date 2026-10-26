@@ -68,9 +68,9 @@ const NavigationBar: React.FC = () => {
                 Home
               </Link>
                <Link
-                href=""
+                href="/why-us"
                 className={`${
-                  pathname === "/cart" ? "text-[#1F4788]" : ""
+                  pathname === "/why-us" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Why-Us
@@ -251,9 +251,9 @@ const NavigationBar: React.FC = () => {
               Home
             </Link>
             <Link
-              href=""
+              href="/why-us"
               className={`block ${
-                pathname === "/cart" ? "text-[#C2410C]" : "text-gray-900"
+                pathname === "/why-us" ? "text-[#1F4788]" : "text-gray-900"
               } hover:text-[#C2410C] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
