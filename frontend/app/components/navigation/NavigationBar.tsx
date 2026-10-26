@@ -76,9 +76,9 @@ const NavigationBar: React.FC = () => {
                 Why-Us
               </Link>
               <Link
-                href="/blog"
+                href="/privacy"
                 className={`${
-                  pathname === "/blog" ? "text-[#1F4788]" : ""
+                  pathname === "/privacy" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Privacy
@@ -269,9 +269,9 @@ const NavigationBar: React.FC = () => {
               Privacy
             </Link>
             <Link
-              href="/privacy"
+              href="/blog"
               className={`block ${
-                pathname === "/privacy" ? "text-[#1F4788]" : "text-gray-900"
+                pathname === "/blog" ? "text-[#1F4788]" : "text-gray-900"
               } hover:text-[#1F4788] transition-colors duration-200 text-lg font-normal`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
