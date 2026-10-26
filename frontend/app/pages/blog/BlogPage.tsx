@@ -70,10 +70,10 @@ const BlogPage: React.FC = () => (
           <p className="mb-4 inline-flex rounded-full border border-[#1F4788]/20 bg-white/70 px-4 py-2 text-sm font-semibold text-[#1F4788]">
             THE GARIKAI JOURNAL
           </p>
-          <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[#1F4788] sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-2xl text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold tracking-tight text-[#1F4788]">
             A little guidance for finding your place.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-gray-700">
+          <p className="mt-6 max-w-prose text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700">
             Moving, renting or welcoming someone into your property is about
             more than a room and a price. We share practical advice to help
             students and property providers make informed decisions with more
@@ -102,7 +102,7 @@ const BlogPage: React.FC = () => (
               <p className="text-sm font-semibold uppercase tracking-wide text-[#C2410C]">
                 More than a listing
               </p>
-              <p className="mt-2 text-xl font-semibold leading-snug text-[#1F4788]">
+              <p className="mt-2 text-lg sm:text-xl font-semibold leading-snug text-[#1F4788]">
                 Better decisions begin with clear information and a human
                 conversation.
               </p>
@@ -118,10 +118,10 @@ const BlogPage: React.FC = () => (
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#C2410C]">
             Read, prepare, feel more confident
           </p>
-          <h2 className="mt-3 text-3xl font-bold leading-tight text-[#1F4788] sm:text-4xl">
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-[#1F4788]">
             Useful advice for real-life decisions
           </h2>
-          <p className="mt-4 leading-7 text-gray-600">
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-gray-600">
             Whether you are searching for your first student room or looking
             after a property, start with the guidance that feels most relevant
             to you.
@@ -148,10 +148,10 @@ const BlogPage: React.FC = () => (
                   <span>{article.category}</span>
                   <span className="text-gray-500">{article.readTime}</span>
                 </div>
-                <h3 className="mt-4 text-xl font-bold leading-snug text-[#1F4788]">
+                <h3 className="mt-4 text-lg sm:text-xl font-semibold leading-snug text-[#1F4788]">
                   {article.title}
                 </h3>
-                <p className="mt-3 leading-7 text-gray-600">{article.intro}</p>
+                <p className="mt-3 text-sm sm:text-base leading-7 text-gray-600">{article.intro}</p>
                 <a
                   href={`#${article.id}`}
                   className="mt-5 inline-flex items-center font-semibold text-[#1F4788] underline decoration-[#7494c8] underline-offset-4 hover:text-[#C2410C]"
@@ -176,13 +176,13 @@ const BlogPage: React.FC = () => (
             <p className="text-xs font-bold tracking-[0.14em] text-[#C2410C]">
               {article.category}
             </p>
-            <h2 className="mt-3 text-2xl font-bold leading-snug text-[#1F4788]">
+            <h2 className="mt-3 text-xl sm:text-2xl font-semibold leading-snug text-[#1F4788]">
               {article.title}
             </h2>
             <p className="mt-4 leading-7 text-gray-600">{article.intro}</p>
             <ul className="mt-5 space-y-3">
               {article.tips.map((tip) => (
-                <li key={tip} className="flex gap-3 leading-6 text-gray-700">
+                <li key={tip} className="flex gap-3 text-sm sm:text-base leading-6 text-gray-700">
                   <span className="mt-1 font-bold text-[#C2410C]" aria-hidden="true">✓</span>
                   <span>{tip}</span>
                 </li>
@@ -200,10 +200,10 @@ const BlogPage: React.FC = () => (
             <p className="text-sm font-semibold uppercase tracking-[0.15em] text-white/75">
               Your next step
             </p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold">
               You do not have to figure everything out at once.
             </h2>
-            <p className="mt-4 leading-7 text-white/85">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-white/85">
               Take your time, ask the questions that matter and make decisions
               when you feel informed. Garikai Realty is here to help make the
               accommodation journey clearer for students and providers.
