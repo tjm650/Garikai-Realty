@@ -68,10 +68,10 @@ const BlogPage: React.FC = () => (
           transition={{ duration: 0.55 }}
         >
          
-          <h1 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-5 sm:mb-6">
             A little guidance for finding your place.
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-md">
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-prose">
             Moving, renting or welcoming someone into your property is about
             more than a room and a price. We share practical advice to help
             students and property providers make informed decisions with more
@@ -106,10 +106,10 @@ const BlogPage: React.FC = () => (
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="mb-9 max-w-2xl">
          
-          <h2 className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-5 sm:mb-6">
             Useful advice for real-life decisions
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 ">
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 ">
             Whether you are searching for your first student room or looking after a property, start with the guidance that feels most relevant to you.
           </p>
         </div>
@@ -137,7 +137,7 @@ const BlogPage: React.FC = () => (
                 <h3 className="mt-4 text-xl font-bold leading-snug text-gray-600">
                   {article.title}
                 </h3>
-                <p className="mt-3 leading-7 text-gray-600">{article.intro}</p>
+                <p className="mt-3 text-sm sm:text-base leading-7 text-gray-600">{article.intro}</p>
                 <a
                   href={`#${article.id}`}
                   className="mt-5 inline-flex items-center font-normal text-[#7494c8] underline decoration-[#7494c8] underline-offset-4"
@@ -168,7 +168,7 @@ const BlogPage: React.FC = () => (
             <p className="mt-4 leading-7 text-gray-600">{article.intro}</p>
             <ul className="mt-5 space-y-3">
               {article.tips.map((tip) => (
-                <li key={tip} className="flex gap-3 leading-6 text-gray-700">
+                <li key={tip} className="flex gap-3 text-sm sm:text-base leading-6 text-gray-700">
                   <span className="mt-1 font-bold text-[#C2410C]" aria-hidden="true">✓</span>
                   <span>{tip}</span>
                 </li>
@@ -184,10 +184,10 @@ const BlogPage: React.FC = () => (
         <div className="mx-auto max-w-7xl overflow-hidden">
           <div className="grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:p-14">
             <div>
-              <p className="text-2xl max-w-[85%] md:text-2xl lg:text-5xl text-gray-700 font-semibol mb-3">
+              <p className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-700 mb-3">
                 Looking for Accommodation?
               </p>
-              <p className="text-lg md:text-xl text-gray-700 max-w-md">
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-700 max-w-prose">
                 Start a conversation, share what you need, and get clarity on
                 the details that matter to you.
               </p>
