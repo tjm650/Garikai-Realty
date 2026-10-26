@@ -76,17 +76,17 @@ const NavigationBar: React.FC = () => {
                 Why-Us
               </Link>
               <Link
-                href="/privacy"
+                href="/blog"
                 className={`${
-                  pathname === "/privacy" ? "text-[#1F4788]" : ""
+                  pathname === "/blog" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Privacy
               </Link>
                <Link
-                href="/privacy"
+                href="/blog"
                 className={`${
-                  pathname === "/privacy" ? "text-[#1F4788]" : ""
+                  pathname === "/blog" ? "text-[#1F4788]" : ""
                 } hover:text-[#1F4788] transition-colors duration-200 font-normal`}
               >
                 Blog
