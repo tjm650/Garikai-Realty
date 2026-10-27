@@ -13,7 +13,7 @@ const articles = [
     intro:
       "A new school year can bring enough change on its own. Start your accommodation search with a few clear priorities, and give yourself room to ask questions.",
     image:
-      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1000&q=85",
+      "https://images.pexels.com/photos/5538604/pexels-photo-5538604.jpeg?auto=compress&cs=tinysrgb&w=1000",
     alt: "Students walking together across a university campus",
     tips: [
       "Set a realistic budget that includes transport, utilities and other regular costs.",
@@ -92,7 +92,7 @@ const BlogPage: React.FC = () => (
         >
           <div className="overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-[#1F4788]/10">
             <img
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85"
+              src="https://images.pexels.com/photos/35752214/pexels-photo-35752214.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Friends sharing a relaxed moment outdoors"
               className="h-[280px] w-full object-cover sm:h-[390px]"
             />
