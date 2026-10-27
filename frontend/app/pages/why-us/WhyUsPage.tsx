@@ -89,7 +89,7 @@ const WhyUsPage: React.FC = () => {
             <div className="absolute -bottom-5 right-2 h-32 w-32 rounded-full bg-[#C2410C]/10 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white p-2 shadow-xl shadow-[#1F4788]/10">
               <img
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85"
+                src="https://images.pexels.com/photos/6140610/pexels-photo-6140610.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="University students sharing a positive moment on campus"
                 className="h-[300px] w-full rounded-[1.5rem] object-cover sm:h-[200px]"
               />
@@ -164,7 +164,7 @@ const WhyUsPage: React.FC = () => {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="order-2 overflow-hidden rounded-[2rem] shadow-lg shadow-[#1F4788]/10 lg:order-1">
               <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85"
+                src="https://images.pexels.com/photos/5538604/pexels-photo-5538604.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="People working together and having a thoughtful conversation"
                 className="h-[300px] w-full object-cover sm:h-[400px]"
                 loading="lazy"
