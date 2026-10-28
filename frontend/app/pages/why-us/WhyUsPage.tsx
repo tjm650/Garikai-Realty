@@ -62,7 +62,7 @@ const WhyUsPage: React.FC = () => {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={process.env.JEFF_WA_NUMBER || "/"}
+                href={process.env.GARIKAI_WA_NUMBER || "/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center border  hover:border-[#C2410C] border-gray-700 rounded-full px-6 py-3 font-normal text-gray-700 transition-colors duration-500 hover:bg-gray-700 hover:text-white"
@@ -210,7 +210,7 @@ const WhyUsPage: React.FC = () => {
            
 
              <a
-            href={process.env.JEFF_WA_NUMBER}
+            href={process.env.GARIKAI_WA_NUMBER}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-full border-0 border-gray-700 bg-transparent px-2 py-2 text-sm font-medium text-gray-700 hover:text-white transition-colors duration-500 md:col-start-5 md:row-start-1 md:border md:px-4 hover:bg-gray-700 hover:border-[#C2410C]`}

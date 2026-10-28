@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <a
-                    href={process.env.JEFF_WA_NUMBER}
+                    href={process.env.GARIKAI_WA_NUMBER}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center  border-[#e9f9fa] border justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl transition-colors duration-200 text-md flex-1 sm:flex-none"

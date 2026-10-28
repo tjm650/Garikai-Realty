@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
 
           {/* Garikai contact */}
           <a
-            href={process.env.JEFF_WA_NUMBER}
+            href={process.env.GARIKAI_WA_NUMBER}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-full border-0 bg-transparent px-2 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10 md:col-start-5 md:row-start-1 md:border md:border-white/60 md:px-4 md:hover:border-white/80`}
