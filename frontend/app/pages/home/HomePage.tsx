@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <a
-                    href="https://wa.me/+263 79 052 9375"
+                    href="https://wa.me/+263790529375"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center  border-[#e9f9fa] border justify-center px-4 py-2 bg-[#25D366] text-white font-medium rounded-4xl transition-colors duration-200 text-md flex-1 sm:flex-none"

@@ -110,7 +110,7 @@ const NavigationBar: React.FC = () => {
             whileTap={{ scale: 0.98 }} 
           >
             <a
-              href="https://wa.me/+263 79 052 9375"
+              href="https://wa.me/+263790529375"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center border-black border justify-center px-4 py-2 bg-[#25D366] text-black font-medium rounded-4xl hover:bg-[#b1facc] transition-colors duration-200 text-md flex-1 sm:flex-none"

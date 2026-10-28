@@ -195,7 +195,7 @@ const BlogPage: React.FC = () => (
            
 
              <a
-            href="https://wa.me/+263 79 052 9375"
+            href="https://wa.me/+263790529375"
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-full border-0 border-gray-700 bg-transparent px-2 py-2 text-sm font-medium text-gray-700 hover:text-white transition-colors duration-500 md:col-start-5 md:row-start-1 md:border md:px-4 hover:bg-gray-700 hover:border-[#C2410C]`}
