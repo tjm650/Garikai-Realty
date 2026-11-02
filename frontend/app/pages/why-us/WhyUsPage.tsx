@@ -70,7 +70,7 @@ const WhyUsPage: React.FC = () => {
                 Find accommodation
               </a>
               <a
-                href="+263790529375"
+                href="tel:+263790529375"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-gray-700  hover:border-[#C2410C] px-6 py-3 font-normal text-gray-700 transition-colors duration-500 hover:bg-gray-700 hover:text-white"
               >
                 I have a property
