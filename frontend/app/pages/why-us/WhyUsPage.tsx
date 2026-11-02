@@ -62,7 +62,7 @@ const WhyUsPage: React.FC = () => {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                {/* href={process.env.GARIKAI_WA_NUMBER || "/"} */}
+                href="https://wa.me/+263790529375"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center justify-center border  hover:border-[#C2410C] border-gray-700 rounded-full px-6 py-3 font-normal text-gray-700 transition-colors duration-500 hover:bg-gray-700 hover:text-white"
@@ -70,7 +70,7 @@ const WhyUsPage: React.FC = () => {
                 Find accommodation
               </a>
               <a
-                {/* href={process.env.HELP_CENTER_WA_NUMBER || "/"} */}
+                href="+263790529375"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-gray-700  hover:border-[#C2410C] px-6 py-3 font-normal text-gray-700 transition-colors duration-500 hover:bg-gray-700 hover:text-white"
               >
                 I have a property
