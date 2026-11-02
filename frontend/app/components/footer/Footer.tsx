@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
 
           {/* Help contact */}
           <a
-            href={process.env.HELP_CENTER_WA_NUMBER}
+            href="tel:+263790529375"
             target="_blank"
             rel="noopener noreferrer"
             className={`${contactButtonClass} col-start-3 row-start-1 border-0 px-2 sm:px-3 md:col-start-6 md:row-start-1 md:border md:border-white/60 md:px-4`}
