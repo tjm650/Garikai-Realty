@@ -2,7 +2,7 @@ Last updated: 03/11/2026
 
 
 
-1\. Garikai Terms of Service
+1\. Terms of Service
 
 
 
