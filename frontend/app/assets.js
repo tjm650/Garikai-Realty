@@ -9,4 +9,5 @@ export const jeffConfirmMsg = '/jeff-confirm-msg.png';
 export const jeffHeaderMsgR = '/jeff-header-msg-r.png';
 export const jeffHeaderMsgS = '/jeff-header-msg-s.png';
 export const jeffImg1 = '/jeffimg1.png';
-export const logo = '/logo.png'; 
+// export const logo = '/logo.png'; 
+export const logo = '/garikai_thumbnail4.png'; 
