@@ -1,4 +1,4 @@
-Last updated:
+Last updated: 03/11/2026
 
 
 
@@ -379,42 +379,6 @@ Reporting of illegal activity to appropriate legal authorities (including POTRAZ
 Essential Cookies: Essential for the Platform to perform core security and session functions, governed by electronic communications rules under the Postal and Telecommunications Act \[Chapter 12:05] and Data Protection Act \[Chapter 11:12].
 
 Analytics Cookies (Delayed Introduction): These collect information about site usage in compliance with user consent standards under the Data Protection Act \[Chapter 11:12]. We only introduce third-party web analytics (and associated cookies) after at least 365 days of successful operation.
-
-
-
-
-
-
-
-Terms of Service, Section 11.3 (Jurisdiction):
-
-Requirement: Confirm whether to include the optional internal mediation/arbitration clause.
-
-Your Current Setting: Proposed as optional.
-
-Privacy Policy, Section 7.1 (Retention):
-
-Requirement: Confirm the data retention period for conversation logs and booking history (e.g., 2 years).
-
-Your Current Setting: Placeholder: 2 years.
-
-Data Protection Policy, Section 3.1 (Sensitive Data):
-
-Requirement: Clarify if any sensitive data (health, religion, etc.) is collected.
-
-Your Current Setting: Placeholder for clarification.
-
-B. Flagged for Local Zimbabwean Lawyer Review
-
-Terms of Service, Section 9.2 (Limitation of Liability):
-
-Legal Focus Area: Review of the liability cap ($100 / ZWL equivalent) to ensure it is enforceable and does not violate any mandatory Zimbabwean consumer protection laws (e.g., Consumer Protection Act \[Chapter 14:14]).
-
-Terms of Service, Section 9.2 (Limitation of Liability):
-
-Legal Focus Area: Review the wording of the consumer protection caveat to ensure compliance with minimum standards of liability that cannot be waived.
-
-Terms of Service, Section 11.2 (Jurisdiction):
 
 Legal Focus Area: Final review of the Governing Law and Jurisdiction clauses to ensure absolute certainty under Zimbabwean court precedent.
 
