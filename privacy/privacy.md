@@ -369,35 +369,3 @@ Permanent suspension or termination of your Account (as per the Terms of Service
 
 Reporting of illegal activity to appropriate legal authorities (including POTRAZ or ZRP Cybercrime Unit under the Cyber and Data Protection Act \[Chapter 12:07]).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5\. Cookie Policy
-
-
-
-5.1. Types of Cookies We Use
-
-
-
-Essential Cookies: Essential for the Platform to perform core security and session functions, governed by electronic communications rules under the Postal and Telecommunications Act \[Chapter 12:05] and Data Protection Act \[Chapter 11:12].
-
-Analytics Cookies (Delayed Introduction): These collect information about site usage in compliance with user consent standards under the Data Protection Act \[Chapter 11:12]. We only introduce third-party web analytics (and associated cookies) after at least 365 days of successful operation.
-
-Legal Focus Area: Final review of the Governing Law and Jurisdiction clauses to ensure absolute certainty under Zimbabwean court precedent.
-
-Payment Terms, Section 4.1 (Chargebacks):
-
-Legal Focus Area: Review of rights to pursue recovery for abusive chargebacks under Zimbabwean contract and banking law.
-
