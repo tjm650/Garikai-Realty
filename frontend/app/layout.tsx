@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   // description: "Accommodation assistant",
 
   icons: {
-    icon: [{ url: "/garikai-favicon.svg", type: "image/svg+xml" }],
-    shortcut: ["/garikai-favicon.svg"],
-    apple: [{ url: "/garikai-favicon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/garikai_thumbnail4.png", type: "image/png" }],
+    shortcut: ["/garikai_thumbnail4.png"],
+    apple: [{ url: "/garikai_thumbnail4.png", type: "image/png" }],
   },
 };
 
