@@ -30,7 +30,7 @@ const articles = [
     intro:
       "A thoughtful listing does more than advertise a room. It helps a student understand what everyday life there could look like and whether it fits their needs.",
     image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85",
     alt: "A bright, welcoming living space prepared for residents",
     tips: [
       "Use recent, clear photos that honestly represent the rooms and shared spaces.",
@@ -47,7 +47,7 @@ const articles = [
     intro:
       "It is easy to focus on the monthly price when a room looks right. A few calm, practical questions can help you understand the full picture before making a decision.",
     image:
-      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85",
     alt: "A welcoming residential building in daylight",
     tips: [
       "What is the total amount due upfront, and are there any additional charges?",
@@ -92,8 +92,8 @@ const BlogPage: React.FC = () => (
         >
           <div className="overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-[#1F4788]/10">
             <img
-              src="https://images.pexels.com/photos/35752214/pexels-photo-35752214.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Friends sharing a relaxed moment outdoors"
+              src="https://images.pexels.com/photos/6140610/pexels-photo-6140610.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Zimbabwean university students studying together on campus"
               className="h-[280px] w-full object-cover sm:h-[390px]"
             />
            
