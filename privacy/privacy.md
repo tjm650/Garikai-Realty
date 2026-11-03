@@ -12,7 +12,7 @@ Last updated: 03/11/2026
 
 
 
-Garikai Realty is an AI-powered accommodation assistant designed specifically for NUST (National University of Science and Technology) students and accommodation providers in Zimbabwe. Our mission is to help students find suitable accommodation near campus, and help accommodation providers to reach students easily through a WhatsApp-based platform.
+Garikai Realty is a WhatsApp-based AI-powered accommodation assistant designed specifically for NUST (National University of Science and Technology) students and accommodation providers in Zimbabwe. Our mission is to help students find suitable accommodation near campus, and help accommodation providers to reach students easily through a WhatsApp-based platform.
 
 
 
