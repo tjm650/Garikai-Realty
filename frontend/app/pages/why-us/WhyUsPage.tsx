@@ -126,7 +126,7 @@ const WhyUsPage: React.FC = () => {
             </p>
             <div className="mt-7 overflow-hidden rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
                 alt="Bright, welcoming home interior"
                 className="h-64 w-full object-cover sm:h-72"
                 loading="lazy"
