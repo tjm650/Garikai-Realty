@@ -92,7 +92,7 @@ const NavigationBar: React.FC = () => {
                 Blog
               </Link>
               <a
-                href={process.env.HELP_CENTER_WA_NUMBER}
+                href="tel:+263790529375"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${
