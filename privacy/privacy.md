@@ -12,7 +12,7 @@ Last updated: 03/11/2026
 
 
 
-Garikai Realty is a WhatsApp-based AI-powered accommodation assistant designed specifically for NUST (National University of Science and Technology) students and accommodation providers in Zimbabwe. Our mission is to help students find suitable accommodation near campus, and help accommodation providers to reach students easily through a WhatsApp-based platform.
+Garikai Realty is a real estate service, currently operating a WhatsApp-based AI-powered accommodation assistant, "Garikai Students", designed specifically for NUST (National University of Science and Technology) students and its off-campus accommodation providers. Our mission is to help students find suitable accommodation near campus, and help accommodation providers to reach students easily through a WhatsApp-based platform.
 
 
 
@@ -20,7 +20,7 @@ Garikai Realty is a WhatsApp-based AI-powered accommodation assistant designed s
 
 
 
-These Terms of Service (the “Terms”) govern your access to and use of this service, including the Garikai Students AI accommodation assistant, and any related services (collectively, the “Service”), in compliance with applicable laws including the Consumer Protection Act \[Chapter 14:14] and Data Protection Act \[Chapter 11:12]. By accessing or using the Service, you ( "User") agree to be bound by these Terms, the Privacy Policy, and the Acceptable Use Policy / Usage Guidelines. If you do not agree to these Terms, you must not use the Service.
+These Terms of Service (the “Terms”) govern your access to and use of this service, including the WhatsApp AI accommodation assistant, and any related services (collectively, the “Service”), in compliance with applicable laws including the Consumer Protection Act \[Chapter 14:14] and Data Protection Act \[Chapter 11:12]. By accessing or using the Service, you ( "User") agree to be bound by these Terms, the Privacy Policy, and the Acceptable Use Policy / Usage Guidelines. If you do not agree to these Terms, you must not use the Service.
 
 
 
@@ -28,7 +28,7 @@ These Terms of Service (the “Terms”) govern your access to and use of this s
 
 
 
-Garikai Realty is an accommodation service. It facilitates connections between Students and Accommodation Providers and initiates (not manage) the booking workflow in alignment with the Estate Agents Act \[Chapter 27:17] and Consumer Protection Act \[Chapter 14:14]. Garikai Realty is NOT the owner, property agent, or a party to any lease, sub-lease, or tenancy agreement entered into between a Student and a Provider. Any agreement you enter into for accommodation is strictly between you and the other party. We only act as an accommodation search intermediary platform.
+Garikai Realty is a real estate service. It facilitates connections between Students and Accommodation Providers and initiates (not manage) the booking workflow in alignment with the Estate Agents Act \[Chapter 27:17] and Consumer Protection Act \[Chapter 14:14]. Garikai Realty is NOT the owner, property agent, or a party to any lease, sub-lease, or tenancy agreement entered into between a Student and a Provider. Any agreement you enter into for accommodation is strictly between you and the other party. We only act as an accommodation search intermediary platform.
 
 
 
@@ -36,15 +36,18 @@ Garikai Realty is an accommodation service. It facilitates connections between S
 
 
 
-1.4.1. Eligibility. The Service is available only to Users who are 18 years of age or older (as defined by the Legal Age of Majority Act \[Chapter 8:07]) and are students or accommodation providers located in Zimbabwe for National University of Science \& Technology. By using the Service, you represent and warrant that you meet this eligibility requirement.
+1.4.1. Eligibility
+The Service is available only to Users who are 18 years of age or older (as defined by the Legal Age of Majority Act \[Chapter 8:07]) and are students or accommodation providers located in Zimbabwe under/for the National University of Science \& Technology. By using the Service, you represent and warrant that you meet this eligibility requirement.
 
 
 
-1.4.2. Account Creation. Only accommodation providers can create their account. Accounts are created directly by the Garikai Realty administrators for security and accountability under the Cyber and Data Protection Act \[Chapter 12:07]. You are responsible for all activity that occurs under your Account and must keep your access credentials secure (chat locking is recommended).
+1.4.2. Account Creation 
+Only accommodation providers can create their account. Accounts are created directly by the Garikai Realty administrators for security and accountability under the Cyber and Data Protection Act \[Chapter 12:07]. You are responsible for all activity that occurs under your Account and must keep your access credentials secure (chat locking is recommended).
 
 
 
-1.4.3. User Responsibilities. You must provide accurate, current, and complete information in accordance with the Consumer Protection Act \[Chapter 14:14], and you are responsible for the security of your device and communication channels (e.g., your WhatsApp account).
+1.4.3. User Responsibilities
+You must provide accurate, current, and complete information in accordance with the Consumer Protection Act \[Chapter 14:14], and you are responsible for the security of your device and communication channels (e.g., your WhatsApp account).
 
 
 
@@ -64,13 +67,14 @@ The Platform primarily uses the Meta WhatsApp API Cloud for AI-driven conversati
 
 If you are an Accommodation Provider, you further agree to:
 
-Ensure all property listings are accurate, truthful, and up-to-date.
+- Ensure all property listings are accurate, truthful, and up-to-date.
 
-Comply with all applicable Zimbabwean laws, including the Housing Standards Control Act \[Chapter 29:08], Consumer Protection Act \[Chapter 14:14], and safety regulations.
+- Comply with all applicable Zimbabwean laws, including the Housing Standards Control Act \[Chapter 29:08], Consumer Protection Act \[Chapter 14:14], and safety regulations.
 
-Not discriminate against any Student on the basis of race, religion, gender, or any other protected characteristic pursuant to Section 56 of the Constitution of Zimbabwe Amendment (No. 20) Act 2013 and the Consumer Protection Act \[Chapter 14:14].
+- Not discriminate against any Student on the basis of race, religion, gender, or any other protected characteristic pursuant to Section 56 of the Constitution of Zimbabwe Amendment (No. 20) Act 2013 and the Consumer Protection Act \[Chapter 14:14].
 
 Ensure the legality, habitability, and safety of the accommodation you list in compliance with the Housing Standards Control Act \[Chapter 29:08] and Public Health Act \[Chapter 15:17].
+
 
 1.7. Acceptable Use and Prohibited Conduct
 
@@ -84,15 +88,18 @@ Your use of the Service must comply at all times with the Acceptable Use Policy 
 
 
 
-1.8.1. Our Content. All rights, title, and interest in and to the Platform, the Service, the AI systems, proprietary analytics, and all Content provided by Garikai Realty (excluding User Content) are owned by Garikai Realty, protected under the Copyright and Neighbouring Rights Act \[Chapter 26:05] and Patents Act \[Chapter 26:03].
+1.8.1. Our Content
+All rights, title, and interest in and to the Platform, the Service, the AI systems, proprietary analytics, and all Content provided by Garikai Realty (excluding User Content) are owned by Garikai Realty, protected under the Copyright and Neighbouring Rights Act \[Chapter 26:05] and Patents Act \[Chapter 26:03].
 
 
 
-1.8.2. User Content Ownership. You retain all ownership rights in the Content that you create, post, or transmit through the Service (“User Content”), such as messages and property listings, pursuant to the Copyright and Neighbouring Rights Act \[Chapter 26:05].
+1.8.2. User Content Ownership
+You retain all ownership rights in the Content that you create, post, or transmit through the Service (“User Content”), such as messages and property listings, pursuant to the Copyright and Neighbouring Rights Act \[Chapter 26:05].
 
 
 
-1.8.3. Provider License to Garikai Realty. By posting User Content, you grant Garikai Realty a non-exclusive license to transfer, reproduce, distribute, and display User Content (except personal data protected under the Data Protection Act \[Chapter 11:12]), for the purposes of operating, developing, and improving the Service, including analytics systems.
+1.8.3. Provider License to Garikai Realty
+By posting User Content, you grant Garikai Realty a non-exclusive license to transfer, reproduce, distribute, and display User Content (except personal data protected under the Data Protection Act \[Chapter 11:12]), for the purposes of operating, developing, and improving the Service, including analytics systems.
 
 
 
@@ -104,7 +111,7 @@ Your use of the Service must comply at all times with the Acceptable Use Policy 
 
 1.9.1. Disclaimers.
 
-NO GUARANTEE OF PROPERTIES: Garikai Realty makes no (100%) guarantee for representations or warranties regarding the condition, safety, legality, or suitability of any accommodation listed on the Platform, subject to non-excludable consumer guarantees under the Consumer Protection Act \[Chapter 14:14]. Garikai Realty administration inspects properties before adding them to the system for condition, safety and suitability verification.
+NO GUARANTEE OF PROPERTIES: Garikai Realty makes no (100%) guarantee for representations or warranties regarding the condition or suitability of any accommodation listed on the Platform by the accommodation provider, subject to non-excludable consumer guarantees under the Consumer Protection Act \[Chapter 14:14]. Garikai Realty administration inspects properties before adding them to the system for condition, safety and suitability verification.
 
 AI ACCURACY: We do not guarantee that AI recommendations, conversation summaries, or property matches are error-free.
 
@@ -116,9 +123,7 @@ AS IS: The Service is provided "as is" and "as available," without any warrantie
 
 
 
-We may suspend or terminate your Account and access to the Service immediately and without prior notice in accordance with the Consumer Protection Act \[Chapter 14:14] if: (i) you breach these Terms (including the Acceptable Use Policy); (ii) we are required to do so by a legal or regulatory body (such as POTRAZ under the Cyber and Data Protection Act \[Chapter 12:07]); (iii) we reasonably believe your use poses a security risk; or (iv) for any other legitimate reason.
-
-NOTE TO USER: If your account is suspended, kindly get in touch with the administration.
+We may suspend or terminate your Account and access to the Service immediately and without prior notice in accordance with the Consumer Protection Act \[Chapter 14:14] if: (i) you breach these Terms (including the Acceptable Use Policy); (ii) we are required to do so by a legal or regulatory body (such as POTRAZ under the Cyber and Data Protection Act \[Chapter 12:07]); (iii) we reasonably believe your use poses a security risk; or (iv) for any other legitimate reason. NOTE TO USER: If your account is suspended, kindly get in touch with the administration.
 
 
 
@@ -126,7 +131,8 @@ NOTE TO USER: If your account is suspended, kindly get in touch with the adminis
 
 
 
-1.11.1. Dispute Resolution Clause. Pursuant to the Arbitration Act \[Chapter 7:15] and Consumer Protection Act \[Chapter 14:14], we recommend the following optional clause to encourage non-judicial resolution: Prior to filing any claim in court, the parties agree to first seek to resolve the dispute through good faith negotiation. If unsuccessful, the parties are encouraged to seek assistance from legal practitioners or the Consumer Protection Commission for further resolution.
+1.11.1. Dispute Resolution Clause
+Pursuant to the Arbitration Act \[Chapter 7:15] and Consumer Protection Act \[Chapter 14:14], we recommend the following optional clause to encourage non-judicial resolution: Prior to filing any claim in court, the parties agree to first seek to resolve the dispute through good faith negotiation. If unsuccessful, the parties are encouraged to seek assistance from legal practitioners or the Consumer Protection Commission for further resolution.
 
 
 
@@ -134,7 +140,8 @@ NOTE TO USER: If your account is suspended, kindly get in touch with the adminis
 
 
 
-1.12.1. Changes to the Terms. We reserve the right to modify these Terms at any time in compliance with fair notice requirements under the Consumer Protection Act \[Chapter 14:14]. We will notify Users of any material changes by updating the "Last updated" date on this website. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance.
+1.12.1. Changes to the Terms
+We reserve the right to modify these Terms at any time in compliance with fair notice requirements under the Consumer Protection Act \[Chapter 14:14]. We will notify Users of any material changes by updating the "Last updated" date on this website. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance.
 
 
 
