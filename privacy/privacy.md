@@ -37,16 +37,19 @@ Garikai Realty is a real estate service. It facilitates connections between Stud
 
 
 1.4.1. Eligibility
+
 The Service is available only to Users who are 18 years of age or older (as defined by the Legal Age of Majority Act \[Chapter 8:07]) and are students or accommodation providers located in Zimbabwe under/for the National University of Science \& Technology. By using the Service, you represent and warrant that you meet this eligibility requirement.
 
 
 
 1.4.2. Account Creation 
+
 Only accommodation providers can create their account. Accounts are created directly by the Garikai Realty administrators for security and accountability under the Cyber and Data Protection Act \[Chapter 12:07]. You are responsible for all activity that occurs under your Account and must keep your access credentials secure (chat locking is recommended).
 
 
 
 1.4.3. User Responsibilities
+
 You must provide accurate, current, and complete information in accordance with the Consumer Protection Act \[Chapter 14:14], and you are responsible for the security of your device and communication channels (e.g., your WhatsApp account).
 
 
@@ -89,16 +92,19 @@ Your use of the Service must comply at all times with the Acceptable Use Policy 
 
 
 1.8.1. Our Content
+
 All rights, title, and interest in and to the Platform, the Service, the AI systems, proprietary analytics, and all Content provided by Garikai Realty (excluding User Content) are owned by Garikai Realty, protected under the Copyright and Neighbouring Rights Act \[Chapter 26:05] and Patents Act \[Chapter 26:03].
 
 
 
 1.8.2. User Content Ownership
+
 You retain all ownership rights in the Content that you create, post, or transmit through the Service (“User Content”), such as messages and property listings, pursuant to the Copyright and Neighbouring Rights Act \[Chapter 26:05].
 
 
 
 1.8.3. Provider License to Garikai Realty
+
 By posting User Content, you grant Garikai Realty a non-exclusive license to transfer, reproduce, distribute, and display User Content (except personal data protected under the Data Protection Act \[Chapter 11:12]), for the purposes of operating, developing, and improving the Service, including analytics systems.
 
 
@@ -132,6 +138,7 @@ We may suspend or terminate your Account and access to the Service immediately a
 
 
 1.11.1. Dispute Resolution Clause
+
 Pursuant to the Arbitration Act \[Chapter 7:15] and Consumer Protection Act \[Chapter 14:14], we recommend the following optional clause to encourage non-judicial resolution: Prior to filing any claim in court, the parties agree to first seek to resolve the dispute through good faith negotiation. If unsuccessful, the parties are encouraged to seek assistance from legal practitioners or the Consumer Protection Commission for further resolution.
 
 
@@ -141,6 +148,7 @@ Pursuant to the Arbitration Act \[Chapter 7:15] and Consumer Protection Act \[Ch
 
 
 1.12.1. Changes to the Terms
+
 We reserve the right to modify these Terms at any time in compliance with fair notice requirements under the Consumer Protection Act \[Chapter 14:14]. We will notify Users of any material changes by updating the "Last updated" date on this website. Your continued use of the Service after the effective date of the revised Terms constitutes your acceptance.
 
 
