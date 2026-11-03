@@ -61,7 +61,7 @@ const PrivacyPage: React.FC = () => {
 
       <style jsx global>{`
         .privacy-policy-content {
-          font-size: 0.0.95rem;
+          font-size: 0.95rem;
           line-height: 1.8;
           overflow-wrap: anywhere;
         }
